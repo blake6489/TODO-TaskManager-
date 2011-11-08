@@ -1,0 +1,5 @@
+# ignore these work files created by latex
+SRS/SRS.aux
+SRS/SRS.log
+SRS/SRS.out
+SRS/SRS.toc
