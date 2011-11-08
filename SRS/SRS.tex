@@ -1,0 +1,171 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{lscape}
+
+\usepackage[T1]{fontenc}
+
+\def\fileversion{4.2}
+\def\filedate{94/11/11}
+\def\docdate {94/11/06}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{helvetica}[\filedate\space\fileversion\space
+Helvetica PSNFSS2e package]
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+
+
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9.5in
+\textwidth 6in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 7pt
+\headsep 0in
+\footskip .9in
+
+\begin{document}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\begin{flushright} 
+% Title
+{ \huge \bfseries TODO: Task Management System}\\[4cm]
+\textsc{\Large Software Requirements Specification}\\
+\vfill
+\emph{Author:} \\
+Blake Eggemeyer \\ [7cm]
+% Bottom of the page
+{\large \today}
+\end{flushright}
+\end{titlepage}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\subsection{Purpose}
+This Software Requirements Specification for TODO is for use by the customer and development team. This document is a formal listing of the functional and non-functional requirements of the TODO system.
+\subsection{Scope}
+The TODO Task Management System will assist in the prioritization and alteration of a list of tasks which are to be completed by a given due date, the remaining estimated time on the project given a total time estimate, and the time spent on each task. This system will not keep track of work done on a listed task unless the user instructs TODO that work is being done.
+\subsection{Definitions}
+\begin{enumerate}
+\item \textbf{user:} The person, or persons, who operate or interact directly with the product.
+%\item [GUI:] Acronym for Graphical User Interface. Used to refer to the look and feel the user experiences.
+\item \textbf{will:} Requirements with this marker are guaranteed to be in the final delivered product.
+\item \textbf{should:} Requirements with this marker are desired, but not crucial, and will
+be a part of the final deliverable contingent on time and progress.
+\item \textbf{immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  Th - computed based on `working on top item in list' function.is applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
+\item \textbf{active list:} The active list is a set of tasks and appointments that have not yet been marked as completed, or inactive.
+\item \textbf{inactive list:} The inactive list is a set of tasks and appointments that have been marked as completed, or inactive.
+\end{enumerate}
+
+\subsection{References}
+Written with the IEEE Recommended Practice for Software Requirements Specifications as a reference and guide. The Tsunami SWR and RPC Donor SWR were referenced to find appropriate wording for some sections.
+%\subsection{Overview}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overall description}
+\subsection{Product perspective}
+TODO is a new self contained product with no planned extensions or dependencies.
+
+%\subsection{Product functions}
+
+\subsection{User Characteristics}
+TODO is intended to have a narrow user base with access to training material and documentation. 
+
+%\subsection{Constraints}
+
+\subsection{Assumptions and Dependencies}
+\begin{enumerate}
+\item \textbf{Time information:} The software relies on time information from the computer it is running on. Inaccurate clock data will be reflected in the software output. 
+\item \textbf{Language:} The interface for the user is in English.
+\item \textbf{Platform:} The platform has not been specified.
+%\item \textbf{Scale:} It is assumed that the number of items stored and listed does not exceed 1,000. This assumption affects statements containing a speed requirement of the program.
+\end{enumerate}
+%\subsection{Apportioning of requirements}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Specific requirements}
+
+\subsection{External interface requirements}
+\subsubsection{User interface}
+The user interface has not been specified.
+
+%\subsubsection{Software interface}
+
+\subsection{Functional requirements}
+\subsubsection{Stored data for tasks}
+Tasks will have data associated with them described below.
+\begin{enumerate}
+\item \textbf{Name:}
+\item \textbf{Description:}
+\item \textbf{Project:}
+\item \textbf{Due date:}
+\item \textbf{Time estimate:}
+\item \textbf{Elapsed time:} computed based on `working on top item in list' function.
+\item \textbf{Priority:} number between 1 and 5 inclusive.
+\item \textbf{Prerequisites:} a task that must be completed or inactive before work may be done of this task.
+\item \textbf{Color:} color used to mark tasks in a manner to be determined in the design phase.
+\end{enumerate}
+
+\subsubsection{Stored data for appointments}
+Appointments will have data associated with them described below.
+\begin{enumerate}
+\item \textbf{Name:}
+\item \textbf{Description:}
+\item \textbf{Project:}
+\item \textbf{Date and time:}
+\item \textbf{Planned duration:}
+\item \textbf{Actual duration:} computed based on `working on top item in list' function.
+\item \textbf{Priority:} calculated.
+\item \textbf{Color:} color used to mark tasks in a manner to be determined in the design phase.
+\end{enumerate}
+
+\subsubsection{Modification of fields}
+\begin{enumerate}
+\item \textbf{Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment.  Any modifications made will be reflected in the list immediately after the alteration has been made.
+\item \textbf{Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made.  This action will be done through a short-cut rather than the normal task modification method.
+\end{enumerate}
+
+\subsubsection{Interaction}
+Below are listed interactions that will allow the user to interact with the tasks.
+\begin{enumerate}
+\item \textbf{Working on top item in list:} When activated the `time worked' will begin accumulating. The `estimated time to completion' will begin to reduce.
+\item \textbf{Mark inactive:} When activated the task will be removed from view in the active list.
+\item \textbf{Completed:} When activated the task will be removed from view in the active list.
+\item \textbf{Done for now:} When activated `time worked' will stop accumulating.
+\item \textbf{Changing list order:} The software will not allow a task to be worked on before its prerequisites have been completed. 
+\end{enumerate}
+
+\subsubsection{Behavior without interaction}
+Below are listed actions that will take place without interaction form the user.
+\begin{enumerate}
+\item \textbf{Appointments:} Appointments will move up in the to do list as the appointment time get nearer.  The appointment will be at the top of the list when the system time and date matches the reminder time and date.
+%\item [Keep alive:] After three hours working on a task the application will prompt the user to confirm that they are still working on the task and have not forgotten to stop it. 
+\end{enumerate}
+
+\subsection{Non-functional requirements}
+in a manner sufficient to capture any changes to it
+
+%\subsection{Performance requirements}
+%\subsection{Software system attributes}
+\newpage
+\textbf{Version tracking:}\\
+\begin{tabular}{rrp{5.5in}}
+0.1 & Nov 2 & Document constructed.\\
+0.2 & Nov 7 & Edits made based on recommendations in first draft.\\
+
+\end{tabular}
+
+\end{document}
