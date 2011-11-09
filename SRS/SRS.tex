@@ -16,7 +16,6 @@
 \renewcommand{\rmdefault}{phv}
 \renewcommand{\ttdefault}{pcr}
 
-
 \topmargin 0in
 \headheight 0in
 \headsep 0in
@@ -33,11 +32,15 @@
 \begin{titlepage}
 \begin{flushright} 
 % Title
-{ \huge \bfseries TODO: Task Management System}\\[4cm]
-\textsc{\Large Software Requirements Specification}\\
+{\LARGE \bfseries Software Requirements Specification}\\[1.2cm]
+{\large \bfseries for}\\[1.2cm]
+{\huge \bfseries TODO: Task Management System}\\[1.2cm]
+{\large \bfseries CS 471}\\
 \vfill
-\emph{Author:} \\
-Blake Eggemeyer \\ [7cm]
+\emph{Prepared by:} \\
+Ethan Tullar\\
+Jon XXX\\
+Blake Eggemeyer \\ [3cm]
 % Bottom of the page
 {\large \today}
 \end{flushright}
@@ -54,14 +57,18 @@ This Software Requirements Specification for TODO is for use by the customer and
 The TODO Task Management System will assist in the prioritization and alteration of a list of tasks which are to be completed by a given due date, the remaining estimated time on the project given a total time estimate, and the time spent on each task. This system will not keep track of work done on a listed task unless the user instructs TODO that work is being done.
 \subsection{Definitions}
 \begin{enumerate}
+\item \textbf{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a field is ``To Be Determined''.
 \item \textbf{user:} The person, or persons, who operate or interact directly with the product.
 %\item [GUI:] Acronym for Graphical User Interface. Used to refer to the look and feel the user experiences.
 \item \textbf{will:} Requirements with this marker are guaranteed to be in the final delivered product.
 \item \textbf{should:} Requirements with this marker are desired, but not crucial, and will
 be a part of the final deliverable contingent on time and progress.
 \item \textbf{immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  Th - computed based on `working on top item in list' function.is applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
+
+{\tt --these are now included in the functional requirements. Is that where the belong?
 \item \textbf{active list:} The active list is a set of tasks and appointments that have not yet been marked as completed, or inactive.
-\item \textbf{inactive list:} The inactive list is a set of tasks and appointments that have been marked as completed, or inactive.
+\item \textbf{inactive list:} The inactive list is a set of tasks and appointments that have been marked as completed, or inactive.}
+
 \end{enumerate}
 
 \subsection{References}
@@ -71,9 +78,31 @@ Written with the IEEE Recommended Practice for Software Requirements Specificati
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Overall description}
 \subsection{Product perspective}
-TODO is a new self contained product with no planned extensions or dependencies.
+TODO is a new self contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.
 
-%\subsection{Product functions}
+\subsection{Product functions}
+{\tt
+Ethan listed many things here, reconcile the list, it contradict Blakes (my) list in some ways. Ethans contribution included below\\}
+\begin{verbatim}
+2.2.1: List must be able to store and edit the following fields of information
+2.2.1.1: Task Description
+2.2.1.2: Project name
+2.2.1.3: Due date
+2.2.1.4: Estimation of how long to complete
+2.2.1.5: Later additions by the user allowed.
+2.2.2: Must maintain all tasks no longer active
+2.2.3: Must provide interactions
+2.2.3.1: Must have "working on top TODO item" button 
+2.2.3.2: Button will add time to accumulated time worked on the item until disabled
+2.2.3.3: Estimated time for the item must be reduced by the accumulated time worked
+2.2.4: Priority of any item must be modifiable by the client
+2.2.4.1: Including setting the priority of any item to highest
+2.2.4.2: Such modifications need to rearrange the TODO list.
+2.2.5: Appointment are to be stored as items
+2.2.5.1: Priority of appointments needs to slowly increase
+2.2.5.2: Has a reminder time at which point the appointment will have highest priority
+2.2.6: Must maintain a simplistic hierarchical task completion functionality
+\end{verbatim}
 
 \subsection{User Characteristics}
 TODO is intended to have a narrow user base with access to training material and documentation. 
@@ -94,11 +123,14 @@ TODO is intended to have a narrow user base with access to training material and
 
 \subsection{External interface requirements}
 \subsubsection{User interface}
-The user interface has not been specified.
-
-%\subsubsection{Software interface}
+TBD
+\subsubsection{Hardware interface}
+TBD
+\subsubsection{Software interface}
+TBD
 
 \subsection{Functional requirements}
+
 \subsubsection{Stored data for tasks}
 Tasks will have data associated with them described below.
 \begin{enumerate}
@@ -142,6 +174,12 @@ Below are listed interactions that will allow the user to interact with the task
 \item \textbf{Changing list order:} The software will not allow a task to be worked on before its prerequisites have been completed. 
 \end{enumerate}
 
+\subsubsection{Active List}
+The active list is a set of the tasks and appointments that are not yet been marked as completed, or inactive.
+
+\subsubsection{Inactive List}
+The inactive list is a set of tasks and appointments that have been marked as completed, or inactive. 
+
 \subsubsection{Behavior without interaction}
 Below are listed actions that will take place without interaction form the user.
 \begin{enumerate}
@@ -150,15 +188,20 @@ Below are listed actions that will take place without interaction form the user.
 \end{enumerate}
 
 \subsection{Non-functional requirements}
-in a manner sufficient to capture any changes to it
+The active list will update in a manner sufficient to capture any changes to it.
 
 %\subsection{Performance requirements}
 %\subsection{Software system attributes}
 \newpage
-\textbf{Version tracking:}\\
-\begin{tabular}{rrp{5.5in}}
+\textbf{Revision tracking:}\\
+\begin{tabular}{|r|r|p{5.5in}|}
+\hline
 0.1 & Nov 2 & Document constructed.\\
+\hline
 0.2 & Nov 7 & Edits made based on recommendations in first draft.\\
+\hline
+0.2.1 & Nov 8 & Begin incorporating Ethans work. Will upgrade to 0.3 when consensus is reached on merging. \\
+\hline
 
 \end{tabular}
 
