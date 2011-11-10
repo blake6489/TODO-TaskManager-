@@ -39,7 +39,7 @@
 \vfill
 \emph{Prepared by:} \\
 Ethan Tullar\\
-Jon XXX\\
+John Chiment\\
 Blake Eggemeyer \\ [3cm]
 % Bottom of the page
 {\large \today}
@@ -47,6 +47,7 @@ Blake Eggemeyer \\ [3cm]
 \end{titlepage}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
 \tableofcontents
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,18 +58,13 @@ This Software Requirements Specification for TODO is for use by the customer and
 The TODO Task Management System will assist in the prioritization and alteration of a list of tasks which are to be completed by a given due date, the remaining estimated time on the project given a total time estimate, and the time spent on each task. This system will not keep track of work done on a listed task unless the user instructs TODO that work is being done.
 \subsection{Definitions}
 \begin{enumerate}
-\item \textbf{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a field is ``To Be Determined''.
+\item \textbf{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is ``To Be Determined''.
 \item \textbf{user:} The person, or persons, who operate or interact directly with the product.
 %\item [GUI:] Acronym for Graphical User Interface. Used to refer to the look and feel the user experiences.
 \item \textbf{will:} Requirements with this marker are guaranteed to be in the final delivered product.
 \item \textbf{should:} Requirements with this marker are desired, but not crucial, and will
 be a part of the final deliverable contingent on time and progress.
 \item \textbf{immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  Th - computed based on `working on top item in list' function.is applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
-
-{\tt --these are now included in the functional requirements. Is that where the belong?
-\item \textbf{active list:} The active list is a set of tasks and appointments that have not yet been marked as completed, or inactive.
-\item \textbf{inactive list:} The inactive list is a set of tasks and appointments that have been marked as completed, or inactive.}
-
 \end{enumerate}
 
 \subsection{References}
@@ -78,7 +74,7 @@ Written with the IEEE Recommended Practice for Software Requirements Specificati
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Overall description}
 \subsection{Product perspective}
-TODO is a new self contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.
+TODO is a new self-contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.
 
 \subsection{Product functions}
 {\tt
@@ -131,70 +127,65 @@ TBD
 
 \subsection{Functional requirements}
 
-\subsubsection{Stored data for tasks}
-Tasks will have data associated with them described below.
-\begin{enumerate}
-\item \textbf{Name:}
-\item \textbf{Description:}
-\item \textbf{Project:}
-\item \textbf{Due date:}
-\item \textbf{Time estimate:}
-\item \textbf{Elapsed time:} computed based on `working on top item in list' function.
-\item \textbf{Priority:} number between 1 and 5 inclusive.
-\item \textbf{Prerequisites:} a task that must be completed or inactive before work may be done of this task.
-\item \textbf{Color:} color used to mark tasks in a manner to be determined in the design phase.
-\end{enumerate}
+\subsubsection{Displayed data for tasks}
+Tasks will have data associated with them described below. 
+\paragraph{Name:}
+\paragraph{Description:}
+\paragraph{Project:} 
+\paragraph{Due date:}
+\paragraph{Time estimate:}
+\paragraph{Elapsed time:} computed based on `working on top item in list' function.
+\paragraph{Priority:} number between 1 and 5 inclusive.
+\paragraph{Prerequisites:} a task that must be completed or inactive before work may be done of this task.
+\paragraph{Color:} color used to mark tasks in a manner to be determined in the design phase.
 
-\subsubsection{Stored data for appointments}
+
+\subsubsection{Displayed data for appointments}
 Appointments will have data associated with them described below.
-\begin{enumerate}
-\item \textbf{Name:}
-\item \textbf{Description:}
-\item \textbf{Project:}
-\item \textbf{Date and time:}
-\item \textbf{Planned duration:}
-\item \textbf{Actual duration:} computed based on `working on top item in list' function.
-\item \textbf{Priority:} calculated.
-\item \textbf{Color:} color used to mark tasks in a manner to be determined in the design phase.
-\end{enumerate}
+\paragraph{Name:}
+\paragraph{Description:}
+\paragraph{Project:}
+\paragraph{Date and time:}
+\paragraph{Planned duration:}
+\paragraph{Actual duration:} computed based on `working on top item in list' functionality.
+\paragraph{Priority:} calculated to change the appointment position in the list.
+\paragraph{Color:} color used to mark tasks in a manner to be determined in the design phase.
+
 
 \subsubsection{Modification of fields}
-\begin{enumerate}
-\item \textbf{Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment.  Any modifications made will be reflected in the list immediately after the alteration has been made.
-\item \textbf{Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made.  This action will be done through a short-cut rather than the normal task modification method.
-\end{enumerate}
+\paragraph{Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment.  Any modifications made will be reflected in the list immediately after the alteration has been made.
+\paragraph{Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made.  This action will be done through a short-cut rather than the normal task modification method.
 
 \subsubsection{Interaction}
 Below are listed interactions that will allow the user to interact with the tasks.
-\begin{enumerate}
-\item \textbf{Working on top item in list:} When activated the `time worked' will begin accumulating. The `estimated time to completion' will begin to reduce.
-\item \textbf{Mark inactive:} When activated the task will be removed from view in the active list.
-\item \textbf{Completed:} When activated the task will be removed from view in the active list.
-\item \textbf{Done for now:} When activated `time worked' will stop accumulating.
-\item \textbf{Changing list order:} The software will not allow a task to be worked on before its prerequisites have been completed. 
-\end{enumerate}
+
+\paragraph{Working on top item in list:} When indicated by the user, the `time worked' field of the task will accumulate. The `estimated time to completion' will correspondingly be reduced.
+\paragraph{Mark inactive:} When indicated by the user the task will be removed from view in the active list.
+\paragraph{Completed:} When indicated by the user the task will be removed from view in the active list.
+\paragraph{Done for now:} When indicated by the user `time worked' will stop accumulating.
+\paragraph{Changing list order:} The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. 
 
 \subsubsection{Active List}
 The active list is a set of the tasks and appointments that are not yet been marked as completed, or inactive.
 
 \subsubsection{Inactive List}
-The inactive list is a set of tasks and appointments that have been marked as completed, or inactive. 
+The inactive list is a set of tasks and appointments that have been marked as completed, inactive, or ignored. 
 
 \subsubsection{Behavior without interaction}
 Below are listed actions that will take place without interaction form the user.
-\begin{enumerate}
-\item \textbf{Appointments:} Appointments will move up in the to do list as the appointment time get nearer.  The appointment will be at the top of the list when the system time and date matches the reminder time and date.
-%\item [Keep alive:] After three hours working on a task the application will prompt the user to confirm that they are still working on the task and have not forgotten to stop it. 
-\end{enumerate}
+\paragraph{Appointments:} Appointments will move up in the to do list as the appointment time get nearer.  The appointment will be at the top of the list when the system time and date matches the reminder time and date.
+% [Keep alive:] After three hours working on a task the application will prompt the user to confirm that they are still working on the task and have not forgotten to stop it. 
 
 \subsection{Non-functional requirements}
-The active list will update in a manner sufficient to capture any changes to it.
+\paragraph{Update frequency:} The active and inactive lists will update in a manner sufficient to capture any changes to it.
+\paragraph{Number of entries in a list:} The active and inactive lists will not be limited in their number of tasks or appointments in a manner which adversely affects the user. 
+\paragraph{Inactive list viewing:} The inactive list will make data available to the user in a manner which will allow them to determine how much time was spend working on separate tasks and appointments.
 
 %\subsection{Performance requirements}
 %\subsection{Software system attributes}
 \newpage
 \textbf{Revision tracking:}\\
-\begin{tabular}{|r|r|p{5.5in}|}
+\begin{tabular}{|l|r|p{5.5in}|}
 \hline
 0.1 & Nov 2 & Document constructed.\\
 \hline
@@ -202,7 +193,8 @@ The active list will update in a manner sufficient to capture any changes to it.
 \hline
 0.2.1 & Nov 8 & Begin incorporating Ethans work. Will upgrade to 0.3 when consensus is reached on merging. \\
 \hline
-
+0.2.2 & Nov 9 & \\
+\hline
 \end{tabular}
 
 \end{document}

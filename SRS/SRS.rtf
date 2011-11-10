@@ -54,15 +54,19 @@
 }
 {\info
 {\title Original file was SRS.tex}
-{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Tue Nov  8 10:33:23 2011
+{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Wed Nov  9 20:06:32 2011
 }
 }
 {\footer\pard\plain\f13\fs24\qc\chpgn\par}
 \paperw11960\paperh16900\margl1440\margr1848\margt1580\margb989\pgnstart0\widowctrl\qj\ftnbj\f13\aftnnar
 {{\pard 
-\par\qj \page {\page{}\pard\qr\sl240\slmult1 \fi0 { \fs48 \b TODO: Task Management System}\par
-{\scaps \fs34 \pard\qr\sl240\slmult1 \fi0 Software Requirements Specification}\par
-\par \pard {\i \pard\qr\sl240\slmult1 \fi0 Author:} \par
+\par\qj \page {\page{}\pard\qr\sl240\slmult1 \fi0 {\fs41 \b Software Requirements Specification}\par
+\pard\qr\sl240\slmult1 \fi0 {\fs29 \b for}\par
+\pard\qr\sl240\slmult1 \fi0 {\fs48 \b TODO: Task Management System}\par
+\pard\qr\sl240\slmult1 \fi0 {\fs29 \b CS 471}\par
+\par \pard {\i \pard\qr\sl240\slmult1 \fi0 Prepared by:} \par
+\pard\qr\sl240\slmult1 \fi0 Ethan Tullar\par
+\pard\qr\sl240\slmult1 \fi0 John Chiment\par
 \pard\qr\sl240\slmult1 \fi0 Blake Eggemeyer \par
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \chdate } \par
 }\pard 
@@ -74,75 +78,134 @@
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.2  Scope\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 The TODO Task Management System will assist in the prioritization and alteration of a list of tasks which are to be completed by a given due date, the remaining estimated time on the project given a total time estimate, and the time spent on each task. This system will not keep track of work done on a listed task unless the user instructs TODO that work is being done. \par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.3  Definitions\par
-}{\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b user:} The person, or persons, who operate or interact directly with the product. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b will:} Requirements with this marker are guaranteed to be in the final delivered product. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b should:} Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab {\b immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur. Th - computed based on \lquote working on top item in list\rquote  function.is applies to the reordering of the list when new input is given. The action will take a measurable, non-zero amount of time. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 5.\tab {\b active list:} The active list is a set of tasks and appointments that have not yet been marked as completed, or inactive. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 6.\tab {\b inactive list:} The inactive list is a set of tasks and appointments that have been marked as completed, or inactive. \par
+}{\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is \ldblquote To Be Determined\rdblquote . \par
+\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b user:} The person, or persons, who operate or interact directly with the product. \par
+\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b will:} Requirements with this marker are guaranteed to be in the final delivered product. \par
+\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab {\b should:} Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress. \par
+\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 5.\tab {\b immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur. Th - computed based on \lquote working on top item in list\rquote  function.is applies to the reordering of the list when new input is given. The action will take a measurable, non-zero amount of time. \par
 }\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.4  References\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 Written with the IEEE Recommended Practice for Software Requirements Specifications as a reference and guide. The Tsunami SWR and RPC Donor SWR were referenced to find appropriate wording for some sections.\par
 \pard\qj\sl240\slmult1 \sb240 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 2  Overall description\par
 }\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.1  Product perspective\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 TODO is a new self contained product with no planned extensions or dependencies.\par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.2  User Characteristics\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 TODO is a new self-contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.2  Product functions\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 {\i0\scaps0\b0\f16 Ethan listed many things here, reconcile the list, it contradict Blakes (my) list in some ways. Ethans contribution included below\par
+}{\pard\qj\sl240\slmult1 \fi0 \pard\ql\b0\i0\scaps0\f16 
+\par 2.2.1: List must be able to store and edit the following fields of information
+\par 2.2.1.1: Task Description
+\par 2.2.1.2: Project name
+\par 2.2.1.3: Due date
+\par 2.2.1.4: Estimation of how long to complete
+\par 2.2.1.5: Later additions by the user allowed.
+\par 2.2.2: Must maintain all tasks no longer active
+\par 2.2.3: Must provide interactions
+\par 2.2.3.1: Must have "working on top TODO item" button 
+\par 2.2.3.2: Button will add time to accumulated time worked on the item until disabled
+\par 2.2.3.3: Estimated time for the item must be reduced by the accumulated time worked
+\par 2.2.4: Priority of any item must be modifiable by the client
+\par 2.2.4.1: Including setting the priority of any item to highest
+\par 2.2.4.2: Such modifications need to rearrange the TODO list.
+\par 2.2.5: Appointment are to be stored as items
+\par 2.2.5.1: Priority of appointments needs to slowly increase
+\par 2.2.5.2: Has a reminder time at which point the appointment will have highest priority
+\par 2.2.6: Must maintain a simplistic hierarchical task completion functionality
+\par \par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.3  User Characteristics\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 TODO is intended to have a narrow user base with access to training material and documentation. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.3  Assumptions and Dependencies\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.4  Assumptions and Dependencies\par
 }{\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Time information:} The software relies on time information from the computer it is running on. Inaccurate clock data will be reflected in the software output. \par
 \pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b Language:} The interface for the user is in English. \par
 \pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b Platform:} The platform has not been specified. \par
 }\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 3  Specific requirements\par
 }\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.1  External interface requirements\par
 }\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.1  User interface\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 The user interface has not been specified.\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 TBD \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.2  Hardware interface\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 TBD \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.3  Software interface\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 TBD\par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.2  Functional requirements\par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1  Stored data for tasks\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 Tasks will have data associated with them described below. {\par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Name:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b Description:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b Project:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab {\b Due date:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 5.\tab {\b Time estimate:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 6.\tab {\b Elapsed time:} computed based on \lquote working on top item in list\rquote  function. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 7.\tab {\b Priority:} number between 1 and 5 inclusive. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 8.\tab {\b Prerequisites:} a task that must be completed or inactive before work may be done of this task. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 9.\tab {\b Color:} color used to mark tasks in a manner to be determined in the design phase. \par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2  Stored data for appointments\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 Appointments will have data associated with them described below. {\par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Name:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b Description:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b Project:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab {\b Date and time:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 5.\tab {\b Planned duration:} \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 6.\tab {\b Actual duration:} computed based on \lquote working on top item in list\rquote  function. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 7.\tab {\b Priority:} calculated. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 8.\tab {\b Color:} color used to mark tasks in a manner to be determined in the design phase. \par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.3  Modification of fields\par
-}{\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment. Any modifications made will be reflected in the list immediately after the alteration has been made. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made. This action will be done through a short-cut rather than the normal task modification method. \par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4  Interaction\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 Below are listed interactions that will allow the user to interact with the tasks. {\par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Working on top item in list:} When activated the \lquote time worked\rquote  will begin accumulating. The \lquote estimated time to completion\rquote  will begin to reduce. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab {\b Mark inactive:} When activated the task will be removed from view in the active list. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab {\b Completed:} When activated the task will be removed from view in the active list. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab {\b Done for now:} When activated \lquote time worked\rquote  will stop accumulating. \par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 5.\tab {\b Changing list order:} The software will not allow a task to be worked on before its prerequisites have been completed. \par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.5  Behavior without interaction\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 Below are listed actions that will take place without interaction form the user. {\par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab {\b Appointments:} Appointments will move up in the to do list as the appointment time get nearer. The appointment will be at the top of the list when the system time and date matches the reminder time and date. \par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.3  Non-functional requirements\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 in a manner sufficient to capture any changes to it\par
-{\b \column \pard\qj\sl240\slmult1 \fi360 Version tracking:}\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1  Displayed data for tasks\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Tasks will have data associated with them described below. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.1  Name:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.2  Description:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.3  Project:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.4  Due date:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.5  Time estimate:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.6  Elapsed time:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 computed based on \lquote working on top item in list\rquote  function. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.7  Priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 number between 1 and 5 inclusive. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.8  Prerequisites:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 a task that must be completed or inactive before work may be done of this task. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.9  Color:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 color used to mark tasks in a manner to be determined in the design phase.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2  Displayed data for appointments\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Appointments will have data associated with them described below. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.1  Name:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.2  Description:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.3  Project:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.4  Date and time:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.5  Planned duration:\par
+} \pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.6  Actual duration:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 computed based on \lquote working on top item in list\rquote  functionality. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.7  Priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 calculated to change the appointment position in the list. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.8  Color:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 color used to mark tasks in a manner to be determined in the design phase.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.3  Modification of fields\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.3.1  Modify any user created field:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 User will be able to modify the contents of any field the user created in a task, project, or appointment. Any modifications made will be reflected in the list immediately after the alteration has been made. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.3.2  Make top priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made. This action will be done through a short-cut rather than the normal task modification method.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4  Interaction\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Below are listed interactions that will allow the user to interact with the tasks.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4.1  Working on top item in list:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user, the \lquote time worked\rquote  field of the task will accumulate. The \lquote estimated time to completion\rquote  will correspondingly be reduced. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4.2  Mark inactive:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4.3  Completed:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4.4  Done for now:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user \lquote time worked\rquote  will stop accumulating. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.4.5  Changing list order:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.5  Active List\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The active list is a set of the tasks and appointments that are not yet been marked as completed, or inactive.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.6  Inactive List\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The inactive list is a set of tasks and appointments that have been marked as completed, inactive, or ignored. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.2.7  Behavior without interaction\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Below are listed actions that will take place without interaction form the user. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.7.1  Appointments:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Appointments will move up in the to do list as the appointment time get nearer. The appointment will be at the top of the list when the system time and date matches the reminder time and date.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.3  Non-functional requirements\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.3.0.2  Update frequency:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The active and inactive lists will update in a manner sufficient to capture any changes to it. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.3.0.3  Number of entries in a list:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The active and inactive lists will not be limited in their number of tasks or appointments in a manner which adversely affects the user. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.3.0.4  Inactive list viewing:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The inactive list will make data available to the user in a manner which will allow them to determine how much time was spend working on separate tasks and appointments.\par
+{\b \column \pard\qj\sl240\slmult1 \fi360 Revision tracking:}\par
 {\pard\qj\sl240\slmult1 \fi0 \par
-\trowd\cellx2890\cellx5780\cellx8670
-\pard\intbl\qr {0.1}\cell
+\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.1}\cell
 \pard\intbl\qr {Nov 2}\cell
 \pard\intbl\ql {Document constructed.}\cell
 \row
-\trowd\cellx2890\cellx5780\cellx8670
-\pard\intbl\qr {0.2}\cell
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.2}\cell
 \pard\intbl\qr {Nov 7}\cell
 \pard\intbl\ql {Edits made based on recommendations in first draft.}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.2.1}\cell
+\pard\intbl\qr {Nov 8}\cell
+\pard\intbl\ql {Begin incorporating Ethans work. Will upgrade to 0.3 when consensus is reached on merging.}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.2.2}\cell
+\pard\intbl\qr {Nov 9}\cell
+\pard\intbl\ql {}\cell
 \row
 }\par
 }}
