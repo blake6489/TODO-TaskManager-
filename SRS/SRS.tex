@@ -37,6 +37,7 @@
 {\huge \bfseries TODO: Task Management System}\\[1.2cm]
 {\large \bfseries CS 471}\\
 \vfill
+{\large \bfseries Draft 0.2.3}\\[2cm]
 \emph{Prepared by:} \\
 Ethan Tullar\\
 John Chiment\\
@@ -58,27 +59,49 @@ This Software Requirements Specification for TODO is for use by the customer and
 The TODO Task Management System will assist in the prioritization and alteration of a list of tasks which are to be completed by a given due date, the remaining estimated time on the project given a total time estimate, and the time spent on each task. This system will not keep track of work done on a listed task unless the user instructs TODO that work is being done.
 \subsection{Definitions}
 \begin{enumerate}
-\item \textbf{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is ``To Be Determined''.
-\item \textbf{user:} The person, or persons, who operate or interact directly with the product.
 %\item [GUI:] Acronym for Graphical User Interface. Used to refer to the look and feel the user experiences.
-\item \textbf{will:} Requirements with this marker are guaranteed to be in the final delivered product.
-\item \textbf{should:} Requirements with this marker are desired, but not crucial, and will
-be a part of the final deliverable contingent on time and progress.
-\item \textbf{immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  Th - computed based on `working on top item in list' function.is applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
+\item \textbf{Appointment:}
+\item \textbf{Immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  This applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
+\item \textbf{Should:} Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress.
+\item \textbf{Task:}
+\item \textbf{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is ``To Be Determined''.
+\item \textbf{TODO:}
+\item \textbf{User:} The person, or persons, who operate or interact directly with the product.
+\item \textbf{Will:} Requirements with this marker are guaranteed to be in the final delivered product.
 \end{enumerate}
 
 \subsection{References}
 Written with the IEEE Recommended Practice for Software Requirements Specifications as a reference and guide. The Tsunami SWR and RPC Donor SWR were referenced to find appropriate wording for some sections.
 %\subsection{Overview}
 
+\subsection{Revision tracking:}
+\begin{tabular}{|l|r|p{5.5in}|}
+\hline
+0.1 & Nov 2 & Document constructed.\\
+\hline
+0.2 & Nov 7 & Edits made based on recommendations in first draft.\\
+\hline
+0.2.1 & Nov 8 & Begin incorporating Ethans work. Will upgrade to 0.3 when consensus is reached on merging. \\
+\hline
+0.2.2 & Nov 9 & Merge draft sent to team mates\\
+\hline
+0.2.3 & Nov 11 & Polishing \\
+\hline
+\end{tabular}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Overall description}
-\subsection{Product perspective}
-TODO is a new self-contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.
-
 \subsection{Product functions}
-{\tt
-Ethan listed many things here, reconcile the list, it contradict Blakes (my) list in some ways. Ethans contribution included below\\}
+TODO is a new self-contained product, produced to aid the client in their consulting, with no planned extensions or dependencies.
+\begin{enumerate}
+\item An intelligent task manager that helps the user prioritize their work flow.
+\item An appointment calendar which reminds the user of upcoming appointments and meetings.
+\item A storage system for completed tasks
+\item A time manager that tracks time spent on a task.
+\end{enumerate}
+\begin{comment}
+
+Ethan listed many things here, reconcile the list, it contradict Blakes (my) list in some ways. Ethans contribution included below\\
 \begin{verbatim}
 2.2.1: List must be able to store and edit the following fields of information
 2.2.1.1: Task Description
@@ -99,6 +122,7 @@ Ethan listed many things here, reconcile the list, it contradict Blakes (my) lis
 2.2.5.2: Has a reminder time at which point the appointment will have highest priority
 2.2.6: Must maintain a simplistic hierarchical task completion functionality
 \end{verbatim}
+\end{comment}
 
 \subsection{User Characteristics}
 TODO is intended to have a narrow user base with access to training material and documentation. 
@@ -117,53 +141,28 @@ TODO is intended to have a narrow user base with access to training material and
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Specific requirements}
 
-\subsection{External interface requirements}
-\subsubsection{User interface}
-TBD
-\subsubsection{Hardware interface}
-TBD
-\subsubsection{Software interface}
-TBD
-
 \subsection{Functional requirements}
 
 \subsubsection{Displayed data for tasks}
 Tasks will have data associated with them described below. 
-\paragraph{Name:}
-\paragraph{Description:}
-\paragraph{Project:} 
-\paragraph{Due date:}
-\paragraph{Time estimate:}
+\paragraph{Name:} User defined label
+\paragraph{Description:} User defined feild
+\paragraph{Project:} User defined feild
+\paragraph{Due date:} User defined feild
+\paragraph{Time estimate:} User defined feild
 \paragraph{Elapsed time:} computed based on `working on top item in list' function.
-\paragraph{Priority:} number between 1 and 5 inclusive.
+\paragraph{Priority:} user controlled relative ranking.
 \paragraph{Prerequisites:} a task that must be completed or inactive before work may be done of this task.
-\paragraph{Color:} color used to mark tasks in a manner to be determined in the design phase.
-
 
 \subsubsection{Displayed data for appointments}
 Appointments will have data associated with them described below.
-\paragraph{Name:}
-\paragraph{Description:}
-\paragraph{Project:}
-\paragraph{Date and time:}
-\paragraph{Planned duration:}
+\paragraph{Name:} User defined feild
+\paragraph{Description:} User defined feild
+\paragraph{Project:} User defined feild
+\paragraph{Date and time:} User defined feild
+\paragraph{Planned duration:} User defined feild
 \paragraph{Actual duration:} computed based on `working on top item in list' functionality.
 \paragraph{Priority:} calculated to change the appointment position in the list.
-\paragraph{Color:} color used to mark tasks in a manner to be determined in the design phase.
-
-
-\subsubsection{Modification of fields}
-\paragraph{Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment.  Any modifications made will be reflected in the list immediately after the alteration has been made.
-\paragraph{Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made.  This action will be done through a short-cut rather than the normal task modification method.
-
-\subsubsection{Interaction}
-Below are listed interactions that will allow the user to interact with the tasks.
-
-\paragraph{Working on top item in list:} When indicated by the user, the `time worked' field of the task will accumulate. The `estimated time to completion' will correspondingly be reduced.
-\paragraph{Mark inactive:} When indicated by the user the task will be removed from view in the active list.
-\paragraph{Completed:} When indicated by the user the task will be removed from view in the active list.
-\paragraph{Done for now:} When indicated by the user `time worked' will stop accumulating.
-\paragraph{Changing list order:} The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. 
 
 \subsubsection{Active List}
 The active list is a set of the tasks and appointments that are not yet been marked as completed, or inactive.
@@ -171,30 +170,33 @@ The active list is a set of the tasks and appointments that are not yet been mar
 \subsubsection{Inactive List}
 The inactive list is a set of tasks and appointments that have been marked as completed, inactive, or ignored. 
 
+\subsubsection{Modification of fields}
+\paragraph{Modify any user created field:} User will be able to modify the contents of any field the user created in a task, project, or appointment.  Any modifications made will be reflected in the list immediately after the alteration has been made.
+\paragraph{Make top priority:} The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made.  This action will be done through a short-cut rather than the normal task modification method.
+
+\subsubsection{Interactions}
+Listed below are methods for the user to interact with the tasks.
+\paragraph{Working on top item in list:} When indicated by the user, the `time worked' field of the task will accumulate. The `estimated time to completion' will correspondingly be reduced.
+\paragraph{Mark inactive:} When indicated by the user the task will be removed from view in the active list.
+\paragraph{Completed:} When indicated by the user the task will be removed from view in the active list.
+\paragraph{Done for now:} When indicated by the user `time worked' will stop accumulating.
+\paragraph{Changing list order:} The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. 
+
 \subsubsection{Behavior without interaction}
-Below are listed actions that will take place without interaction form the user.
+Listed below are actions that will take place without interaction form the user.
 \paragraph{Appointments:} Appointments will move up in the to do list as the appointment time get nearer.  The appointment will be at the top of the list when the system time and date matches the reminder time and date.
 % [Keep alive:] After three hours working on a task the application will prompt the user to confirm that they are still working on the task and have not forgotten to stop it. 
 
 \subsection{Non-functional requirements}
+\setcounter{paragraph}{0}
+
 \paragraph{Update frequency:} The active and inactive lists will update in a manner sufficient to capture any changes to it.
 \paragraph{Number of entries in a list:} The active and inactive lists will not be limited in their number of tasks or appointments in a manner which adversely affects the user. 
 \paragraph{Inactive list viewing:} The inactive list will make data available to the user in a manner which will allow them to determine how much time was spend working on separate tasks and appointments.
+\paragraph{Storage:} Tasks and appointment will be saved regardless of their completion status.
 
 %\subsection{Performance requirements}
 %\subsection{Software system attributes}
-\newpage
-\textbf{Revision tracking:}\\
-\begin{tabular}{|l|r|p{5.5in}|}
-\hline
-0.1 & Nov 2 & Document constructed.\\
-\hline
-0.2 & Nov 7 & Edits made based on recommendations in first draft.\\
-\hline
-0.2.1 & Nov 8 & Begin incorporating Ethans work. Will upgrade to 0.3 when consensus is reached on merging. \\
-\hline
-0.2.2 & Nov 9 & \\
-\hline
-\end{tabular}
+
 
 \end{document}
