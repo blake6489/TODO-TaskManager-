@@ -54,7 +54,7 @@
 }
 {\info
 {\title Original file was SRS.tex}
-{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Fri Nov 11 12:42:21 2011
+{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Fri Nov 11 14:11:44 2011
 }
 }
 {\footer\pard\plain\f13\fs24\qc\chpgn\par}
@@ -64,7 +64,7 @@
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \b for}\par
 \pard\qr\sl240\slmult1 \fi0 {\fs48 \b TODO: Task Management System}\par
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \b CS 471}\par
-\par \pard \pard\qr\sl240\slmult1 \fi0 {\fs29 \b Draft 0.2.3}\par
+\par \pard \pard\qr\sl240\slmult1 \fi0 {\fs29 \b Draft 0.3.0}\par
 {\i \pard\qr\sl240\slmult1 \fi0 Prepared by:} \par
 \pard\qr\sl240\slmult1 \fi0 Ethan Tullar\par
 \pard\qr\sl240\slmult1 \fi0 John Chiment\par
@@ -116,11 +116,16 @@
 \pard\intbl\qr {Nov 11}\cell
 \pard\intbl\ql {Polishing}\cell
 \row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.3.0}\cell
+\pard\intbl\qr {Nov 11}\cell
+\pard\intbl\ql {Merge completed, considered to be suitable for final draft}\cell
+\row
 }\par
 \pard\qj\sl240\slmult1 \sb240 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 2  Overall description\par
 }\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.1  Product functions\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 TODO is a new self-contained product, produced to aid the client in their consulting, with no planned extensions or dependencies. {\par
-\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab An intelligent task manager that helps the user prioritize their work flow. \par
+\pard\qj\sl240\slmult1 \sb50 \li600\fi-300 1.\tab A task manager that helps the user prioritize their work flow. \par
 \pard\qj\sl240\slmult1 \sb50 \li600\fi-300 2.\tab An appointment calendar which reminds the user of upcoming appointments and meetings. \par
 \pard\qj\sl240\slmult1 \sb50 \li600\fi-300 3.\tab A storage system for completed tasks \par
 \pard\qj\sl240\slmult1 \sb50 \li600\fi-300 4.\tab A time manager that tracks time spent on a task. \par
@@ -166,35 +171,38 @@
 } \pard\qj\sl240\slmult1 \sb60 \fi0 computed based on \lquote working on top item in list\rquote  functionality. \par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.2.7  Priority:\par
 } \pard\qj\sl240\slmult1 \sb60 \fi0 calculated to change the appointment position in the list.\par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.3  Modification of fields\par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.3.1  Modify any user created field:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 User will be able to modify the contents of any field the user created in a task, project, or appointment. Any modifications made will be reflected in the list immediately after the alteration has been made. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.3.2  Make top priority:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made. This action will be done through a short-cut rather than the normal task modification method.\par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4  Interaction\par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4.1  Working on top item in list:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user, the \lquote time worked\rquote  field of the task will accumulate. The \lquote estimated time to completion\rquote  will correspondingly be reduced. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4.2  Mark inactive:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4.3  Completed:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4.4  Done for now:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user \lquote time worked\rquote  will stop accumulating. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4.5  Changing list order:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.5  Active List\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.3  Active List\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 The active list is a set of the tasks and appointments that are not yet been marked as completed, or inactive.\par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6  Inactive List\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.4  Inactive List\par
 }\pard\qj\sl240\slmult1 \sb60 \fi0 The inactive list is a set of tasks and appointments that have been marked as completed, inactive, or ignored. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.5  Modification of fields\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.5.1  Modify any user created field:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 User will be able to modify the contents of any field the user created in a task, project, or appointment. Any modifications made will be reflected in the list immediately after the alteration has been made. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.5.2  Make top priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to make a task the top priority and see the list order change immediately after the alteration has been made. This action will be done through a short-cut rather than the normal task modification method.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6  Interactions\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Listed below are methods for the user to interact with the tasks. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6.1  Working on top item in list:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user, the \lquote time worked\rquote  field of the task will accumulate. The \lquote estimated time to completion\rquote  will correspondingly be reduced. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6.2  Mark inactive:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6.3  Completed:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user the task will be removed from view in the active list. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6.4  Done for now:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 When indicated by the user \lquote time worked\rquote  will stop accumulating. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.6.5  Changing list order:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The user will be able to change the order of the tasks in the active list, but the software will not allow a task to be worked on before its prerequisites have been completed. \par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 3.1.7  Behavior without interaction\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 Below are listed actions that will take place without interaction form the user. \par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Listed below are actions that will take place without interaction form the user. \par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.1.7.1  Appointments:\par
 } \pard\qj\sl240\slmult1 \sb60 \fi0 Appointments will move up in the to do list as the appointment time get nearer. The appointment will be at the top of the list when the system time and date matches the reminder time and date.\par
 \pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.2  Non-functional requirements\par
-}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.2  Update frequency:\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.1  Update frequency:\par
 } \pard\qj\sl240\slmult1 \sb60 \fi0 The active and inactive lists will update in a manner sufficient to capture any changes to it. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.3  Number of entries in a list:\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.2  Number of entries in a list:\par
 } \pard\qj\sl240\slmult1 \sb60 \fi0 The active and inactive lists will not be limited in their number of tasks or appointments in a manner which adversely affects the user. \par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.4  Inactive list viewing:\par
-} \pard\qj\sl240\slmult1 \sb60 \fi0 The inactive list will make data available to the user in a manner which will allow them to determine how much time was spend working on separate tasks and appointments.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.3  Inactive list viewing:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The inactive list will make data available to the user in a manner which will allow them to determine how much time was spend working on separate tasks and appointments. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.0.4  Storage:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Tasks and appointment will be saved regardless of their completion status.\par
 }}
