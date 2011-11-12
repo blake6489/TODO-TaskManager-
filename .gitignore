@@ -1,13 +1,20 @@
 # ignore these work files created by latex
-SRS/SRS.aux
-SRS/SRS.log
-SRS/SRS.out
-SRS/SRS.toc
-SRS/SRS.xdy
-SRS/SRS.glo
-SRS/.~lock.CS 471 reqdoc (ethan).odt#
-SRS/.~lock.471draft.odt#
+SDD/SDD.aux
+SDD/SDD.log
+SDD/SDD.out
+SDD/SDD.toc
+SDD/SDD.xdy
+SDD/SDD.glo
+SDD/.~lock.CS 471 reqdoc (ethan).odt#
+SDD/.~lock.471draft.odt#
 
+# ignore these work files created by latex
+SDD/SDD.aux
+SDD/SDD.log
+SDD/SDD.out
+SDD/SDD.toc
+SDD/SDD.xdy
+SDD/SDD.glo
 
 #all hidden files
 .*
