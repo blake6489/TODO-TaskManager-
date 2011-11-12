@@ -22,6 +22,9 @@
 
 \setlength{\parindent}{0pt}
 
+\usepackage[toc,xindy]{glossaries}
+\makeglossaries
+
 
 \topmargin 0in
 \headheight 0in
@@ -35,11 +38,14 @@
 \footskip .9in
 
 \begin{document}
+
+\include{glossary}
+
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
 \begin{flushright} 
 % Title
-{\LARGE \bfseries Software Design Document}\\[1.2cm]
+{\LARGE \bfseries Software Design Description}\\[1.2cm]
 {\large \bfseries for}\\[1.2cm]
 {\huge \bfseries TODO: Task Management System}\\[1.2cm]
 {\large \bfseries CS 471}\\
@@ -60,11 +66,20 @@ Blake Eggemeyer \\ [3cm]
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Revision tracking:}
+%http://en.wikipedia.org/wiki/Traceability_matrix
+
+\section{test}
+\gls{culdesac}
+
+\subsection{Revision tracking}
 \begin{tabular}{|l|r|p{5.5in}|}
 \hline
 0.0.1 & Nov 11 & Empty document created.\\
 \hline
 \end{tabular}
 
+\printglossaries
+
+
 \end{document}
+

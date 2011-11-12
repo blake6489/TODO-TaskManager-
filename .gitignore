@@ -1,21 +1,31 @@
+
 # ignore these work files created by latex
+SRS/.~lock.471draft.odt#
+SRS/.~lock.CS 471 reqdoc (ethan).odt#
 SRS/SRS.aux
+SRS/SRS.glo
 SRS/SRS.log
 SRS/SRS.out
 SRS/SRS.toc
 SRS/SRS.xdy
-SRS/SRS.glo
-SRS/.~lock.CS 471 reqdoc (ethan).odt#
-SRS/.~lock.471draft.odt#
+
 
 # ignore these work files created by latex
+SDD/g.aux
+SDD/glossary.aux
+SDD/glossary.tex.aux
 SDD/SDD.aux
+SDD/SDD.glg
+SDD/SDD.glo
+SDD/SDD.gls
+SDD/SDD.ilg
+SDD/SDD.ind
+SDD/SDD.ist
 SDD/SDD.log
 SDD/SDD.out
 SDD/SDD.toc
 SDD/SDD.xdy
-SDD/SDD.glo
 
-#all hidden files
 .*
+#all hidden files
 !.gitignore
