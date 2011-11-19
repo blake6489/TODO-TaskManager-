@@ -14,7 +14,7 @@
 
 % make paragraphs less important looking
 \usepackage{sectsty}
-\paragraphfont{\normalfont\small}
+\paragraphfont{\normalfont}
 
 \usepackage[T1]{fontenc}
 
@@ -63,47 +63,80 @@ Blake Eggemeyer \\ [3cm]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %http://en.wikipedia.org/wiki/Traceability_matrix
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 \subsection{Overview}
 
+\subsection{Stakeholders}
+The stakeholder in the design is also the client.
+
+\subsection{}
+
 \subsection{Definitions}
 \setcounter{paragraph}{0}
-\paragraph{words:} def
+\setcounter{subsubsection}{1}
+\paragraph{Immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  This applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
+\paragraph{Should:} Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress.
+\paragraph{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is ``To Be Determined''.
+\paragraph{TODO:} Working name of the project.
+\paragraph{User:} The person, or persons, who operate or interact directly with the product.
+\paragraph{Will:} Requirements with this marker are guaranteed to be in the final delivered product.
 
-\section{References}
-The {\tt 1998 - IEEE Recommended Practice for Software Design Descriptions} was referenced to produce this document.
+\subsection{References}
+The {\tt 1998 - IEEE Standard for Information Technology -- Systems Design -- Software Design Descriptions} was referenced to produce this document.
 
 \subsection{Revision tracking}
 \begin{tabular}{|l|r|p{5.5in}|}
 \hline
 0.0.1 & Nov 11 & Empty document created.\\
 \hline
-0.0.2 & Nov 17 & .\\
+0.0.2 & Nov 17 & Framework added.\\
+\hline
+0.0.3 & Nov 18 & Framework extended.\\
 \hline
 \end{tabular}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design Considerations}
+
+\subsection{Programming Languages}
+TODO will be implemented in C++ due to the programmers experience with that language.
+
+\subsection{Project Management}
+This project will use Git version control in conjunction with Github to keep track of changes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design}
+\subsection{Data Storage}\label{sec:Data Storage}
+\subsubsection{}
+
+\subsubsection{}
+
+\subsubsection{}
+
+\subsection{Views}
+\subsubsection{}
+
+\subsubsection{}
+
+\subsubsection{}
+
+\subsection{Interface}
+\subsubsection{Command line}
+
+\subsubsection{}
+
+\subsubsection{}
+
+\subsection{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test Cases}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Tracability matrix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Traceability matrix}
 \begin{center}
 \begin{tabular}{|l||*{15}{c|}}
 \hline
@@ -112,33 +145,15 @@ The {\tt 1998 - IEEE Recommended Practice for Software Design Descriptions} was 
 	\begin{sideways}3.2.0.1\end{sideways} & \begin{sideways}3.2.0.2\end{sideways} & \begin{sideways}3.2.0.3\end{sideways} & \begin{sideways}3.2.0.4\end{sideways}\\
 \hline
 \hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
-\hline
-1	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 \end{tabular}
 \end{center}
