@@ -54,34 +54,250 @@
 }
 {\info
 {\title Original file was SDD.tex}
-{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Sat Nov 12 00:13:54 2011
+{\doccomm Created using latex2rtf 1.9.19 (released Nov 20 2007) on Sat Nov 19 12:38:32 2011
 }
 }
 {\footer\pard\plain\f13\fs24\qc\chpgn\par}
-\paperw11960\paperh16900\margl1440\margr1848\margt1580\margb989\pgnstart0\widowctrl\qj\ftnbj\f13\aftnnar
-{\page{}\pard\qj\sl240\slmult1 \fi0 {culdesac}{name=culdesac,description={passage or street closed at one end}}\par
-{\pard 
+\paperw12280\paperh15900\margl1440\margr2168\margt1580\margb1435\pgnstart0\widowctrl\qj\ftnbj\f13\aftnnar
+{{\pard 
 \par\qj \page {\page{}\pard\qr\sl240\slmult1 \fi0 {\fs41 \b Software Design Description}\par
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \b for}\par
 \pard\qr\sl240\slmult1 \fi0 {\fs48 \b TODO: Task Management System}\par
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \b CS 471}\par
-\par \pard \pard\qr\sl240\slmult1 \fi0 {\fs29 \b Draft 0.0.1}\par
+\par \pard \pard\qr\sl240\slmult1 \fi0 {\fs29 \b Draft 0.0.4}\par
 {\i \pard\qr\sl240\slmult1 \fi0 Prepared by:} \par
-\pard\qr\sl240\slmult1 \fi0 Ethan Tullar\par
-\pard\qr\sl240\slmult1 \fi0 John Chiment\par
 \pard\qr\sl240\slmult1 \fi0 Blake Eggemeyer \par
 \pard\qr\sl240\slmult1 \fi0 {\fs29 \chdate } \par
 }\pard 
 \par\qj \page }\page{}\pard\qj\sl240\slmult1 \fi0 {\s1\ql\sb240\sa60\keepn\f13\b\fs40\li0 Contents\par
 }{\field{\*\fldinst TOC \\o "1-3" }{\fldrslt }}
-\page{}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 1  test\par
-}\pard\qj\sl240\slmult1 \sb60 \fi0 {culdesac}\par
-\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.1  Revision tracking\par
+\page{}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 1  Introduction\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.1  Overview\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.2  Stakeholders\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The stakeholder in the design is also the client.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.3  \par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.4  Definitions\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.1  Immediately:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Immediately refers to actions that will begin as soon as the user has given the input for the action to occur. This applies to the reordering of the list when new input is given. The action will take a measurable, non-zero amount of time. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.2  Should:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.3  TBD:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is \ldblquote To Be Determined\rdblquote . \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.4  TODO:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Working name of the project. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.5  User:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 The person, or persons, who operate or interact directly with the product. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 1.4.1.6  Will:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Requirements with this marker are guaranteed to be in the final delivered product.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.5  References\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The {\i0\scaps0\b0\f16 1998 - IEEE Standard for Information Technology \endash  Systems Design \endash  Software Design Descriptions} was referenced to produce this document.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 1.6  Revision tracking\par
 }{\pard\qj\sl240\slmult1 \sb60 \fi0 \par
 \trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrt\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
 \pard\intbl\ql {0.0.1}\cell
 \pard\intbl\qr {Nov 11}\cell
 \pard\intbl\ql {Empty document created.}\cell
 \row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.0.2}\cell
+\pard\intbl\qr {Nov 17}\cell
+\pard\intbl\ql {Framework added.}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.0.3}\cell
+\pard\intbl\qr {Nov 18}\cell
+\pard\intbl\ql {Framework extended.}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrs\cellx2890\clbrdrb\brdrs\clbrdrr\brdrs\cellx5780\clbrdrb\brdrs\clbrdrr\brdrs\cellx8670
+\pard\intbl\ql {0.0.4}\cell
+\pard\intbl\qr {Nov 19}\cell
+\pard\intbl\ql {Design.}\cell
+\row
 }\par
-}}
+\pard\qj\sl240\slmult1 \sb240 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 2  Design Considerations\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.1  Programming Languages\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 TODO will be implemented in C++ due to the programmers experience with that language.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 2.2  Project Management\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 This project will use {\i0\scaps0\b0\f16 Git} version control in conjunction with {\i0\scaps0\b0\f16 Github} to keep track of changes.\par
+\pard\qj\sl240\slmult1 \sb240 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 {\*\bkmkstart BMsec_DataStorage}3{\*\bkmkend BMsec_DataStorage}  Data Storage\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 3.1  \par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 {\*\bkmkstart BMsec_DataDictionary}3.2{\*\bkmkend BMsec_DataDictionary}  Data Dictionary\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 {\*\bkmkstart BMsec_Task}3.2.1{\*\bkmkend BMsec_Task}  Task\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.1  Unique ID:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Non user editable {\i0\scaps0\b0\f16 int}. This is the index value used for internal reference to the task. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.2  Name:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.3  Description:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.4  Project:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.5  Due date:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Input as three integers. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.6  Time estimate:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Input as three integers. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.7  Elapsed time:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Calculated based on \lquote Working on top item in list\rquote  function. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.8  Priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Integer representing number of tasks from the top. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.1.9  Prerequisites:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Integer representing the unique Id of another task.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 {\*\bkmkstart BMsec_Appointment}3.2.2{\*\bkmkend BMsec_Appointment}  Appointment\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.1  Unique ID:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Non user editable {\i0\scaps0\b0\f16 int}. This is the index value used for internal reference to the appointment. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.2  Name:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.3  Description:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.4  Project:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Data type {\i0\scaps0\b0\f16 string}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.5  Date:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Input as three integers. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.6  Estimated duration:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Input as three integers. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.7  Time worked:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Calculated based on \lquote Working on top item in list\rquote  function. Stored as Unix epoch time {\i0\scaps0\b0\f16 int}. \par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s6\ql\sb240\sa60\keepn\f13\b\fs24 3.2.2.8  Priority:\par
+} \pard\qj\sl240\slmult1 \sb60 \fi0 Integer representing number of tasks from the top. This is recalculated every minute to move the appointment up the active list.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s5\ql\sb240\sa60\keepn\f13\b\fs24 {\*\bkmkstart BMsec_Activelist}3.2.3{\*\bkmkend BMsec_Activelist}  Active list\par
+}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 4  Views\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 4.1  Viewing Active List\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The user will see the list of tasks and appointments to be done in order of priority.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 4.2  Viewing All\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 The user will see the entire list of work done on tasks regardless of completion status.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 4.3  Viewing \par
+}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 5  Interface\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 5.1  Command line\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Using a command line interface would allow the TODO software to be used in an open Linux terminal. This interface option is for more limiting for typical users than a GUI.\par
+\pard\qj\sl240\slmult1 \sb120 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 5.2  Glade2\par
+}\pard\qj\sl240\slmult1 \sb60 \fi0 Glade2 is a user interface design tool that would allow TODO to be implemented in a GUI. \par
+\pard\qj\sl240\slmult1 \sb240 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 6  Actions\par
+}\pard\qj\sl240\slmult1 \sb180 \fi0 {\s4\ql\sb240\sa60\keepn\f13\b\fs32 6.1  Command line\par
+}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 7  Test Cases\par
+}\pard\qj\sl240\slmult1 \sb300 \fi0 {\s3\ql\sb240\sa60\keepn\f13\b\fs32 8  Traceability matrix\par
+}{{\pard\qc\sl240\slmult1 \sb60 \fi0 \par
+\trowd\clbrdrl\brdrs\clbrdrt\brdrs\clbrdrb\brdrdb\clbrdrr\brdrdb\cellx4336\clbrdrt\brdrs\clbrdrb\brdrdb\cellx8672\clbrdrt\brdrs\cellx13008\clbrdrt\brdrs\cellx17344\clbrdrt\brdrs\cellx21680\clbrdrt\brdrs\cellx26016\clbrdrt\brdrs\cellx30352\clbrdrt\brdrs\cellx34688\clbrdrt\brdrs\cellx39024\clbrdrt\brdrs\cellx43360\clbrdrt\brdrs\cellx47696\clbrdrt\brdrs\cellx52032\clbrdrt\brdrs\cellx56368\clbrdrt\brdrs\cellx60704\clbrdrt\brdrs\cellx65040\clbrdrt\brdrs\cellx69376
+\pard\intbl\ql {}\cell
+\pard\intbl\qc {{\par
+\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q {{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q{{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\pard\intbl\q1 {{\pard\qc\sl240\slmult1 \fi0 \qc [Sorry. Ignored {\plain\f16\\begin\{sideways\} ... \\end\{sideways\}}]\par
+}}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrdb\cellx4336\clbrdrb\brdrs\cellx8672\cellx13008\cellx17344\cellx21680\cellx26016\cellx30352\cellx34688\cellx39024\cellx43360\cellx47696\cellx52032\cellx56368\cellx60704\cellx65040\cellx69376
+\pard\intbl\ql {\~{\field{\*\fldinst{\lang1024 REF BMsec_Task \\* MERGEFORMAT }}{\fldrslt{\pard\qc\sl240\slmult1 \fi0 3.2.1}}}}\cell
+\pard\intbl\qc {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q1 {}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrdb\cellx4336\clbrdrb\brdrs\cellx8672\cellx13008\cellx17344\cellx21680\cellx26016\cellx30352\cellx34688\cellx39024\cellx43360\cellx47696\cellx52032\cellx56368\cellx60704\cellx65040\cellx69376
+\pard\intbl\ql {\~{\field{\*\fldinst{\lang1024 REF BMsec_Appointment \\* MERGEFORMAT }}{\fldrslt{3.2.2}}}}\cell
+\pard\intbl\qc {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q1 {}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrdb\cellx4336\clbrdrb\brdrs\cellx8672\cellx13008\cellx17344\cellx21680\cellx26016\cellx30352\cellx34688\cellx39024\cellx43360\cellx47696\cellx52032\cellx56368\cellx60704\cellx65040\cellx69376
+\pard\intbl\ql {\~{\field{\*\fldinst{\lang1024 REF BMsec_Activelist \\* MERGEFORMAT }}{\fldrslt{3.2.3}}}}\cell
+\pard\intbl\qc {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q1 {}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrdb\cellx4336\clbrdrb\brdrs\cellx8672\cellx13008\cellx17344\cellx21680\cellx26016\cellx30352\cellx34688\cellx39024\cellx43360\cellx47696\cellx52032\cellx56368\cellx60704\cellx65040\cellx69376
+\pard\intbl\ql {\~{\field{\*\fldinst{\lang1024 REF BMsec_DataStorage \\* MERGEFORMAT }}{\fldrslt{3}}}}\cell
+\pard\intbl\qc {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q1 {}\cell
+\row
+\trowd\clbrdrl\brdrs\clbrdrb\brdrs\clbrdrr\brdrdb\cellx4336\clbrdrb\brdrs\cellx8672\cellx13008\cellx17344\cellx21680\cellx26016\cellx30352\cellx34688\cellx39024\cellx43360\cellx47696\cellx52032\cellx56368\cellx60704\cellx65040\cellx69376
+\pard\intbl\ql {\~{\field{\*\fldinst{\lang1024 REF BMsec_DataStorage \\* MERGEFORMAT }}{\fldrslt{3}}}}\cell
+\pard\intbl\qc {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q {}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q{}\cell
+\pard\intbl\q1 {}\cell
+\row
+} \par
+}}}
