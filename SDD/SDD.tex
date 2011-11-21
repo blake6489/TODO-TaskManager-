@@ -145,6 +145,26 @@ The active list will be recalculated form the complete list each time a recalcul
 
 \subsubsection{Inactive list} \label{sec:Inactive list}
 
+%%%%%%%%
+\section{Actions}
+\subsection{Command line}
+\setcounter{paragraph}{0}
+\setcounter{subsubsection}{0}
+\paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{todo top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
+\paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{todo inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
+\paragraph{Completed:} \label{sec:Completed} By running \e{todo complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
+\paragraph{Done for now:} \label{sec:Done for now} By running \e{todo stop} the top task in the list will stop accumulating time worked.
+\paragraph{Changing list order:} \label{sec:Change order} By running \e{todo move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+%%%%
+\paragraph{Modify a user created field:} \label{sec:Modify} By running \e{todo modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
+\paragraph{Make item top priority:} \label{sec:Make top} By running \e{todo move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+%%%%
+\subsection{Automatic actions}
+\setcounter{paragraph}{0}
+\setcounter{subsubsection}{0}
+\paragraph{Appointment} \label{sec:Auto appointments} The position of an appointment will change at an interval set by the user so that the appointment appears at the top of the list before it actually occurs.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Views}
 \subsection{Viewing Active List}
@@ -160,19 +180,6 @@ Using a command line interface would allow the TODO software to be used in an op
 \subsection{Glade2}
 Glade2 is a user interface design tool that would allow TODO to be implemented in a GUI.  
 
-%%%%%%%%
-\section{Actions}
-\subsection{Command line}
-\setcounter{paragraph}{0}
-\setcounter{subsubsection}{0}
-\paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{todo top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
-\paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{todo inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
-\paragraph{Completed:} \label{sec:Completed} By running \e{todo complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
-\paragraph{Done for now:} \label{sec:Done for now} By running \e{todo stop} the top task in the list will stop accumulating time worked.
-\paragraph{Changing list order:} \label{sec:Change order} By running \e{todo move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
-%%%%
-\paragraph{Modify a user created field:} \label{sec:Modify} By running \e{todo modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
-\paragraph{Make item top priority:} \label{sec:Make top} By running \e{todo move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Test Cases}
@@ -207,6 +214,8 @@ Glade2 is a user interface design tool that would allow TODO to be implemented i
 ~\ref{sec:Modify}			&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 ~\ref{sec:Make top}			&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Auto appointments}&	&	&	&	&	&	&	&	&	&	&	&\c	&	&	&	&	\\
 \hline
 ~\ref{sec:Storage}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
