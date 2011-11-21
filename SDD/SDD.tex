@@ -27,7 +27,8 @@
 
 %type face for code and such things
 \newcommand{\e}[1] {{\tt #1}}
-
+%used in table
+\newcommand{\s}[1] {\begin{sideways}#1\end{sideways}}
 
 \setlength{\parindent}{0pt}
 
@@ -80,7 +81,7 @@ The stakeholder in the design is also the client.
 
 \subsection{Definitions}
 \setcounter{paragraph}{0}
-\setcounter{subsubsection}{1}
+\setcounter{subsubsection}{0}
 \paragraph{Immediately:} Immediately refers to actions that will begin as soon as the user has given the input for the action to occur.  This applies to the reordering of the list when new input is given.  The action will take a measurable, non-zero amount of time.
 \paragraph{Should:} Requirements with this marker are desired, but not crucial, and will be a part of the final deliverable contingent on time and progress.
 \paragraph{TBD:} Acronym for To Be Determined. This is used in this document to signify that the information necessary for a part of this document is ``To Be Determined''.
@@ -111,7 +112,7 @@ The {\tt 1998 - IEEE Standard for Information Technology -- Systems Design -- So
 TODO will be implemented in C++ due to the programmers experience with that language.
 
 \subsection{Project Management}
-This project will use {\tt Git} version control in conjunction with {\tt Github} to keep track of changes.
+This project will use {\tt Git} version control in conjunction with {\tt GitHub} to keep track of changes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Storage}\label{sec:Data Storage}
@@ -140,17 +141,17 @@ This project will use {\tt Git} version control in conjunction with {\tt Github}
 \paragraph{Priority:} Integer representing number of tasks from the top. This is recalculated every minute to move the appointment up the active list.
 
 \subsubsection{Active list} \label{sec:Active list}
+The active list will be recalculated form the complete list each time a recalculate is requested.  This will occur when changes are made to the items in the list and at scheduled intervals.
 
+\subsubsection{Inactive list} \label{sec:Inactive list}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Views}
 \subsection{Viewing Active List}
-The user will see the list of tasks and appointments to be done in order of priority.
+The user will see the list of tasks and appointments to be done in order of priority. These tasks will be those that are 
 
 \subsection{Viewing All}
 The user will see the entire list of work done on tasks regardless of completion status.
-
-\subsection{Viewing }
 
 \section{Interface}
 \subsection{Command line}
@@ -159,8 +160,19 @@ Using a command line interface would allow the TODO software to be used in an op
 \subsection{Glade2}
 Glade2 is a user interface design tool that would allow TODO to be implemented in a GUI.  
 
+%%%%%%%%
 \section{Actions}
 \subsection{Command line}
+\setcounter{paragraph}{0}
+\setcounter{subsubsection}{0}
+\paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{todo top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
+\paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{todo inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
+\paragraph{Completed:} \label{sec:Completed} By running \e{todo complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
+\paragraph{Done for now:} \label{sec:Done for now} By running \e{todo stop} the top task in the list will stop accumulating time worked.
+\paragraph{Changing list order:} \label{sec:Change order} By running \e{todo move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+%%%%
+\paragraph{Modify a user created field:} \label{sec:Modify} By running \e{todo modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
+\paragraph{Make item top priority:} \label{sec:Make top} By running \e{todo move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Test Cases}
@@ -169,22 +181,36 @@ Glade2 is a user interface design tool that would allow TODO to be implemented i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Traceability matrix}
 \begin{center}
-\begin{tabular}{|l||*{15}{c|}}
+\begin{tabular}{|l||*{16}{c|}}
 \hline
-	&\begin{sideways}3.1.1\end{sideways} & \begin{sideways}3.1.2\end{sideways} & \begin{sideways}3.1.3\end{sideways} & \begin{sideways}3.1.4\end{sideways} &
-	\begin{sideways}3.1.5.1\end{sideways} & \begin{sideways}3.1.5.2\end{sideways} & \begin{sideways}3.1.6.1\end{sideways} & \begin{sideways}3.1.6.2\end{sideways} & \begin{sideways}3.1.6.3\end{sideways} & \begin{sideways}3.1.6.4\end{sideways} & \begin{sideways}3.1.6.5\end{sideways} &
-	\begin{sideways}3.2.0.1\end{sideways} & \begin{sideways}3.2.0.2\end{sideways} & \begin{sideways}3.2.0.3\end{sideways} & \begin{sideways}3.2.0.4~~\end{sideways}\\
+	& \s{3.1.1} & \s{3.1.2} & \s{3.1.3} & \s{3.1.4} & \s{3.1.5.1} & \s{3.1.5.2} & \s{3.1.6.1} & \s{3.1.6.2} & \s{3.1.6.3} & \s{3.1.6.4} & \s{3.1.6.5} & \s{3.1.7.1} & \s{3.2.0.1} & \s{3.2.0.2} & \s{3.2.0.3} & \s{3.2.0.4~~}\\
 \hline
 \hline
-~\ref{sec:Task}	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Task}				&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Appointment}	&	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Appointment}		&	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Active list}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Active list}		&	&	&--	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Inactive list}	&	&	&	&--	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Data Storage}	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Working on top}	&	&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Mark inactive}	&	&	&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Completed}		&	&	&	&	&	&	&	&	&\c	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Done for now}		&	&	&	&	&	&	&	&	&	&\c	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Change order}		&	&	&	&	&	&\c	&	&	&	&	&\c	&	&	&	&	&	\\
+\hline
+~\ref{sec:Modify}			&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Make top}			&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Storage}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+\hline
+~\ref{sec:Storage}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 \end{tabular}
 \end{center}
