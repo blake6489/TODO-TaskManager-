@@ -116,9 +116,11 @@ This project will use {\tt Git} version control in conjunction with {\tt GitHub}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Storage}\label{sec:Data Storage}
-\subsection{}
-
 \subsection{Data Dictionary}\label{sec:Data Dictionary}
+\subsubsection{Configuration} \label{sec:Configuration}
+ TODO will reference a configuration file by the name of \e{config} in the same directory as the executable 
+\paragraph{Update frequency:} \label{sec:Update timing} The active list will be updated at the frequency in seconds specified by the user. The system will not support updates more frequent than 1 second.
+
 \subsubsection{Task} \label{sec:Task}
 \paragraph{Unique ID:} Non user editable \e{int}. This is the index value used for internal reference to the task. 
 \paragraph{Name:} Data type \e{string}.
@@ -143,7 +145,8 @@ This project will use {\tt Git} version control in conjunction with {\tt GitHub}
 \subsubsection{Active list} \label{sec:Active list}
 The active list will be recalculated form the complete list each time a recalculate is requested.  This will occur when changes are made to the items in the list and at scheduled intervals.
 
-\subsubsection{Inactive list} \label{sec:Inactive list}
+\subsubsection{Complete list} \label{sec:Complete list}
+The complete list will be the entirety of all items regardless of there completion status.
 
 %%%%%%%%
 \section{Actions}
@@ -158,19 +161,21 @@ The active list will be recalculated form the complete list each time a recalcul
 %%%%
 \paragraph{Modify a user created field:} \label{sec:Modify} By running \e{todo modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
 \paragraph{Make item top priority:} \label{sec:Make top} By running \e{todo move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+
+\paragraph{Delete:} \label{sec:Delete} There is no deletion functionality
 %%%%
 \subsection{Automatic actions}
 \setcounter{paragraph}{0}
 \setcounter{subsubsection}{0}
-\paragraph{Appointment} \label{sec:Auto appointments} The position of an appointment will change at an interval set by the user so that the appointment appears at the top of the list before it actually occurs.
+\paragraph{Appointment} \label{sec:Auto appointments} The position of an appointment will change at an interval set by the user so that the appointment appears at the top of the list before it actually occurs. The position in the active list will be calculated by time till appointment divided by user defined update interval. With the soonest appointment calculated first.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Views}
 \subsection{Viewing Active List}
-The user will see the list of tasks and appointments to be done in order of priority. These tasks will be those that are 
+The user will see the list of tasks and appointments to be done in order of priority. These tasks will be those that are not marked inactive, or completed.
 
-\subsection{Viewing All}
+\subsection{Viewing All} \label{sec:View all}
 The user will see the entire list of work done on tasks regardless of completion status.
 
 \section{Interface}
@@ -193,13 +198,15 @@ Glade2 is a user interface design tool that would allow TODO to be implemented i
 	& \s{3.1.1} & \s{3.1.2} & \s{3.1.3} & \s{3.1.4} & \s{3.1.5.1} & \s{3.1.5.2} & \s{3.1.6.1} & \s{3.1.6.2} & \s{3.1.6.3} & \s{3.1.6.4} & \s{3.1.6.5} & \s{3.1.7.1} & \s{3.2.0.1} & \s{3.2.0.2} & \s{3.2.0.3} & \s{3.2.0.4~~}\\
 \hline
 \hline
+~\ref{sec:Update timing}	&	&	&	&	&	&	&	&	&	&	&	&	&\c	&	&	&	\\
+\hline
 ~\ref{sec:Task}				&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 ~\ref{sec:Appointment}		&	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 ~\ref{sec:Active list}		&	&	&--	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Inactive list}	&	&	&	&--	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Complete list}	&	&	&	&--	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 ~\ref{sec:Working on top}	&	&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	\\
 \hline
@@ -215,11 +222,13 @@ Glade2 is a user interface design tool that would allow TODO to be implemented i
 \hline
 ~\ref{sec:Make top}			&	&	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Auto appointments}&	&	&	&	&	&	&	&	&	&	&	&\c	&	&	&	&	\\
+~\ref{sec:Auto appointments}&	&	&	&	&	&	&	&	&	&	&	&\c	&\c	&	&	&	\\
 \hline
-~\ref{sec:Storage}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:Delete}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	\\
 \hline
-~\ref{sec:Storage}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
+~\ref{sec:View all}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	&	\\
+\hline
+~\ref{sec:Delete}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
 \end{tabular}
 \end{center}
