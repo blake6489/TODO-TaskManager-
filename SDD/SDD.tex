@@ -87,6 +87,7 @@ The stakeholder in the design is also the client.
 \paragraph{User:} The person, or persons, who operate or interact directly with the product.
 \paragraph{Will:} Requirements with this marker are guaranteed to be in the final delivered product.
 \paragraph{Item:} Item refers to a data object. This object is either an appointment or a task.
+\paragraph{CSV:} CSV is an acronym for Comma Separated Value. This is a standard and common format of simple tabular data.
 
 \subsection{References}
 The {\tt 1998 - IEEE Standard for Information Technology -- Systems Design -- Software Design Descriptions} was referenced to produce this document.
@@ -119,8 +120,9 @@ This project will use {\tt Git} version control in conjunction with {\tt GitHub}
 \section{Data Storage}\label{sec:Data Storage}
 \subsection{Data Dictionary}\label{sec:Data Dictionary}
 \subsubsection{Configuration} \label{sec:Configuration}
- TODO will reference a configuration file by the name of \e{config} in the same directory as the executable 
-\paragraph{Update frequency:} \label{sec:Update timing} The active list will be updated at the frequency in seconds specified by the user. The system will not support updates more frequent than 1 second.
+ TODO will reference a configuration file by the name of \e{config} in the same directory as the executable.
+\paragraph{Update frequency:} \label{sec:Update timing} The active list will be updated at the frequency in seconds specified by the user. The system will not support updates more frequent than 1 second. The default value is 15 minutes.
+\paragraph{Active list length:} \label{sec:Active list length} This value will determine what portion of the active list is printed to the terminal. This value does not limit the length of the list, only which entries are displayed. The default value is 15 items.
 
 \subsubsection{Task} \label{sec:Task}
 \paragraph{Unique ID:} Non user editable \e{int}. This is the index value used for internal reference to the task. 
@@ -150,20 +152,23 @@ The active list will be recalculated form the \e{complete list} each time a reca
 The complete list will be the entirety of all items regardless of there completion status. This list will be only list which is stored. All other lists will be calculated from the complete list.  As the complete list grows in size performance may suffer. 
 
 %%%%%%%%
-\section{Actions}
-\subsection{Command line}
+\section{Actions} \label{sec:Actions}
+\subsection{Terminal}
 \setcounter{paragraph}{0}
 \setcounter{subsubsection}{0}
-\paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{todo top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
-\paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{todo inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
-\paragraph{Completed:} \label{sec:Completed} By running \e{todo complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
-\paragraph{Done for now:} \label{sec:Done for now} By running \e{todo stop} the top task in the list will stop accumulating time worked.
-\paragraph{Changing list order:} \label{sec:Change order} By running \e{todo move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+\paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
+\paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
+\paragraph{Completed:} \label{sec:Completed} By running \e{complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
+\paragraph{Done for now:} \label{sec:Done for now} By running \e{stop} the top task in the list will stop accumulating time worked.
+\paragraph{Changing list order:} \label{sec:Change order} By running \e{move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
 %%%%
-\paragraph{Modify a user created field:} \label{sec:Modify} By running \e{todo modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
-\paragraph{Make item top priority:} \label{sec:Make top} By running \e{todo move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
-
+\paragraph{Modify a user created field:} \label{sec:Modify} By running \e{modify [Unique ID] [option]} the specified task will be modified, with the given piece of data being changed to the given value.
+\paragraph{Make item top priority:} \label{sec:Make top} By running \e{move [Unique ID] 0} he specified task will be moved to the top priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
+%%%%
 \paragraph{Delete:} \label{sec:Delete} There is no deletion functionality
+%%%%
+\paragraph{View complete list:} \label{sec:View complete list} By entering \e{all} the user will be able to see the entire complete list in the terminal.
+\paragraph{Export complete list:} \label{sec:Export complete list} By entering \e{export} the user will be able to export the entire complete list to a \e{CSV} file.
 %%%%
 \subsection{Automatic actions}
 \setcounter{paragraph}{0}
@@ -174,21 +179,25 @@ The complete list will be the entirety of all items regardless of there completi
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Views}
 \subsection{Viewing Active List}
-The user will see the list of tasks and appointments to be done in order of priority. These tasks will be those that are not marked inactive, or completed.
+The user will see the list of tasks and appointments to be done in order of priority. These tasks will be those that are not marked inactive, or completed. The number of items shown is specified by the user in the \e{config} file and defaults to 15 items. 
+\\
+TBD\\
+<insert example view here>
 
 \subsection{Viewing All} \label{sec:View all}
-The user will see the entire list of work done on tasks regardless of completion status.
+The user will see the entire list of work done on items regardless of completion status when executing the \e{all} or \e{export} functions.
 
 \section{Interface}
-\subsection{Command line}
-Using a command line interface would allow the TODO software to be used in an open Linux terminal. This interface option is for more limiting for typical users than a GUI but will be simpler to implement and will achieve the goals.
+\subsection{Terminal}
+Using a command line interface would allow the TODO software to be used in an open Linux terminal. This interface option is for more limiting for typical users than a GUI but will be simpler to implement and will achieve the goals. The terminal would print out the active list in order of which priority and then leave a line at the bottom for the user to enter the commands listing the Actions section.
 
 \subsection{Glade2}
-Glade2 is a user interface design tool that would allow TODO to be implemented in a C++ GUI.  
+Glade2 is a possible user interface design tool that would allow TODO to be implemented in a C++ GUI.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Test Cases}
+TBD
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -230,6 +239,12 @@ Glade2 is a user interface design tool that would allow TODO to be implemented i
 ~\ref{sec:Auto appointments}&	&	&	&	&	&	&	&	&	&	&	&\c	&\c	&	&	&	\\
 \hline
 ~\ref{sec:Delete}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	\\
+\hline
+~\ref{sec:View complete list}
+							&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	&	\\
+\hline
+~\ref{sec:Export complete list}
+							&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	&	\\
 \hline
 ~\ref{sec:View all}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&\c	&	\\
 \hline
