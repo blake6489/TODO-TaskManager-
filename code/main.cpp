@@ -11,6 +11,9 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <string.h>
+#include "boost/date_time/gregorian/gregorian.hpp"
+#include <set>
+#include <algorithm>
 using namespace std;
 
 #include "tools/utils.cpp"
@@ -20,9 +23,14 @@ using namespace std;
 
 int main (int argc, char* argv[])
 {
+    using namespace boost::gregorian;
+
 	taskClass p;
-	p.print();
-	
+
+	string u=fileReadMmap("README");
+	date d2(2002,2,16);
+	date d1(2002,2,18);
+	cout<<d1-d2<<endl;
 
 	return 0;
 }
