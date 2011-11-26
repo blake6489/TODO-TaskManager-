@@ -25,33 +25,73 @@ using namespace boost::gregorian;
 
 class taskClass
 {
-public:
+private:
+	bool inactive;
 	bool apt;
-	int id;
+	unsigned int id;
+
 	std::string name;
 	std::string description;
 	std::string project;
 	date dueDate;
 	date timeEst;
 	date timeElapse;
-	int priority;    
-    int prereq;
-  
+	unsigned int priority;    
+    unsigned int prereq;
+	  
+public:
+	bool getInactive() { return inactive; }
+	void setInactive(bool i) { inactive = i; }
 
+	bool getApt() { return apt; }
+	void setApt(bool i) { apt = i; }
+
+	unsigned int getId() { return id; }
+	void setApt(unsigned int i) { id = i; }
+	////
+	std::string getName() { return name; }
+	void setName(std::string n) { name = n; }
+
+	std::string getDescription() { return description; }
+	void setDescription(std::string d) { description = d; }
+
+	std::string getProject() { return project; }
+	void setProject(std::string p) { project = p; }
+	////
+	date getDueDate() { return dueDate; }
+	void setDueDate(date d) { dueDate = d; }
+
+	date getTimeEst() { return timeEst; }
+	void setTimeEst(date d) { timeEst = d; }
+
+	date getTimeElapse() { return timeElapse; }
+	void setTimeElapse(date d) { timeElapse = d; }
+	////
+	unsigned int getPriority() { return priority; }
+	void setPriority(unsigned int i) { priority = i; }
+
+	unsigned int getPrereq() { return prereq; }
+	void setPrereq(unsigned int i) { prereq = i; }
+	
 };
+
+
+
+
 
  ostream &operator<<(ostream &out, taskClass t)     //output
 {
-	out<< "apt:" 		<< t.apt<<"\n";
-	out<< "id:" 		<< t.id<<"\n";
-	out<< "name:" 		<< t.name<<"\n";
-	out<< "description:" << t.description<<"\n";
-	out<< "project:" 	<< t.project<<"\n";
-	out<< "dueDate:" 	<< t.dueDate<<"\n";
-	out<< "timeEst:" 	<< t.timeEst<<"\n";
-	out<< "timeElapse:" 	<< t.timeElapse<<"\n";
-	out<< "priority:" 	<< t.priority<<"\n";    
-    out<< "prereq:" 		<< t.prereq<<"\n";
+	out<< "inactive:" 	<< t.getInactive()<<"\n";
+	out<< "apt:" 		<< t.getApt()<<"\n";
+	out<< "id:" 		<< t.getId()<<"\n";
+	out<< "name:" 		<< t.getName()<<"\n";
+	out<< "description:"<< t.getDescription()<<"\n";
+	out<< "project:" 	<< t.getProject()<<"\n";
+	out<< "dueDate:" 	<< t.getDueDate()<<"\n";
+	out<< "timeEst:" 	<< t.getTimeEst()<<"\n";
+	out<< "timeElapse:" << t.getTimeElapse()<<"\n";
+	out<< "priority:" 	<< t.getPriority()<<"\n";    
+    out<< "prereq:" 	<< t.getPrereq()<<"\n";
 	return out;
 }
 
