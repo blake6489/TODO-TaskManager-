@@ -10,16 +10,18 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 using namespace std;
 
 #include "tools/utils.cpp"
+#include "task.h"
+
 
 
 int main (int argc, char* argv[])
 {
+	taskClass p;
+	p.print();
 	
 
 	return 0;

@@ -1,7 +1,7 @@
 
 main:
-	rm main
-	g++ tools/distance.cpp tools/distance.h main.cpp -o main
+
+	g++ tools/distance.cpp main.cpp -o /home/blake/Desktop/School/CS471/TODO/TODO
 
 clean:
-	rm main
+	rm /home/blake/Desktop/School/CS471/TODO/TODO
