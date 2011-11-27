@@ -18,6 +18,7 @@ using namespace std;
 
 #include "tools/utils.cpp"
 #include "task.h"
+#include "list.h"
 
 
 
@@ -26,11 +27,18 @@ int main (int argc, char* argv[])
     using namespace boost::gregorian;
 
 	taskClass p;
+	p.setId(5);
+	
+	
+	
 
+	
 	string u=fileReadMmap("README");
 	date d2(2002,2,16);
 	date d1(2002,2,18);
-	cout<<d1-d2<<endl;
+	
+
+	
 
 	return 0;
 }

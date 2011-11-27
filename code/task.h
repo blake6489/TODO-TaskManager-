@@ -47,7 +47,7 @@ public:
 	void setApt(bool i) { apt = i; }
 
 	unsigned int getId() { return id; }
-	void setApt(unsigned int i) { id = i; }
+	void setId(unsigned int i) { id = i; }
 	////
 	std::string getName() { return name; }
 	void setName(std::string n) { name = n; }
