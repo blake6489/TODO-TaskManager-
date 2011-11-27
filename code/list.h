@@ -23,52 +23,125 @@ using namespace boost::gregorian;
 #ifndef LIST_H_INCLUDE
 #define LIST_H_INCLUDE
 
-class listClass {
+class activeListClass {
 	
 	vector<taskClass> list;
+	int idCount;
 
+public:
+	listClass()
+	{
+		idCount=0;
+	}
+	
+	
 public:
 	taskClass top() { return list[0]; }
 
 	
-	vector<taskClass> show(int n) 
-	{ 
-		vector<taskClass> ret;
-		for(int i=0; i<n; ++i){
-			ret.push_back(list[i]);
-		}
-		return ret; 
-	}
-	
-	vector<taskClass> showActive(int n) 
+	vector<taskClass> show(int n=-1) 
 	{ 
 		vector<taskClass> ret;
 		int c=0;
+		if (n<0){c=-2147483647;}
 		int i=0;
 		while(c<n && i<list.size()){
-			if(!(list[i].getInactive())){			
+			if((list[i].getInactive())){			
 				ret.push_back(list[i]);
 				++c;
 			}
-			
-			++i
+			++i;
 		}
 		return ret; 
 	}
 	
-	void add(taskClass t) 
-	{  
-		list.push_back(t);
-		resort();	
+	vector<taskClass> showInactive(int n=-1) 
+	{ 
+		//if n=-1, show all inactive
+		vector<taskClass> ret;
+		int c=0;
+		if (n<0){c=-2147483647;}
+		int i=0;
+		while(c<n && i<list.size()){
+			if((list[i].getInactive())){			
+				ret.push_back(list[i]);
+				++c;
+			}
+			++i;
+		}
+		return ret; 
+	}
+		
+	vector<taskClass> showApt(int n=-1) 
+	{ 
+		//if n=-1, show all appointments
+		vector<taskClass> ret;
+		int c=0;
+		if (n<0){c=-2147483647;}
+		int i=0;
+		while(c<n && i<list.size()){
+			if(list[i].getApt()){			
+				ret.push_back(list[i]);
+				++c;
+			}
+			++i;
+		}
+		return ret; 
 	}
 	
 	
+	vector<taskClass> showTask(int n=-1) 
+	{ 
+		//if n=-1, show all tasks
+		vector<taskClass> ret;
+		int c=0;
+		if (n<0){c=-2147483647;}
+		int i=0;
+		while(c<n && i<list.size()){
+			if(!(list[i].getInactive()) && !(list[i].getApt())){			
+				ret.push_back(list[i]);
+				++c;
+			}
+			++i;
+		}
+		return ret; 
+	}
 	
-	taskClass top() { return list[0]; }
+	void push(
+		bool apt,
+		string name,
+		string description,
+		string project,
+		date dueDate,
+		date timeEst,
+		int priority = -1,
+		int prereq = -1) 
+	{  
+		++idCount;
+		taskClass t = taskClass(apt, idCount, name, description, project, dueDate, timeEst, priority, prereq);
+		list.push_back(t);
+	}
+	
+	vector<taskClass> reSort()
+	{
+		vector<taskClass> tasks=showTask();
+		vector<taskClass> apts=showApt();
+		
+	
+	
+	
+	}
+	
+	//how?
+	void makeInactive(){}
+	
+	
+	
+	//taskClass top() { return list[0]; }
 
 
 
-}
+};
 
 
 

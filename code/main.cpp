@@ -26,11 +26,23 @@ int main (int argc, char* argv[])
 {
     using namespace boost::gregorian;
 
-	taskClass p;
-	p.setId(5);
+	//time in seconds when appointments move
+	int AppointmentDelay = 15*60;
+
+	listClass p;
+	p.add(false, "namething1", "descprojectthing", "projectthing", date(2000,1,1), date(2001,2,2), 0);
+	p.add(false, "namething2", "descprojectthing", "projectthing", date(2000,2,1), date(2001,2,2), 0);
+	p.add(false, "namething3", "descprojectthing", "projectthing", date(2000,3,1), date(2001,2,2), 0);
 	
+	//cout<<p.top()<<endl;
 	
-	
+	vector<taskClass> o=p.showActive();
+	for(int i=0;i<o.size();++i)
+	{
+		cout <<o[i]<<endl;
+	}
+
+
 
 	
 	string u=fileReadMmap("README");

@@ -28,17 +28,47 @@ class taskClass
 private:
 	bool inactive;
 	bool apt;
-	unsigned int id;
+	int id;
 
-	std::string name;
-	std::string description;
-	std::string project;
+	string name;
+	string description;
+	string project;
 	date dueDate;
 	date timeEst;
 	date timeElapse;
-	unsigned int priority;    
-    unsigned int prereq;
+	int priority;    
+    int prereq;
 	  
+public:
+	taskClass(
+		bool a,
+		int i,
+		string n,
+		string des,
+		string pro,
+		date due,
+		date time,
+		int pri = -1,
+		int pre = -1)
+	{
+		inactive=false;
+		
+		apt=a;
+		id=i;
+		
+		name=n;
+		description=des;
+		project=pro;
+		dueDate=due;
+		timeEst=time;
+		timeElapse=date(1500,1,1);
+		priority=pri;    
+		prereq=pre;
+		
+	}
+	
+	
+	
 public:
 	bool getInactive() { return inactive; }
 	void setInactive(bool i) { inactive = i; }
@@ -46,17 +76,17 @@ public:
 	bool getApt() { return apt; }
 	void setApt(bool i) { apt = i; }
 
-	unsigned int getId() { return id; }
-	void setId(unsigned int i) { id = i; }
+	int getId() { return id; }
+	void setId(int i) { id = i; }
 	////
-	std::string getName() { return name; }
-	void setName(std::string n) { name = n; }
+	string getName() { return name; }
+	void setName(string n) { name = n; }
 
-	std::string getDescription() { return description; }
-	void setDescription(std::string d) { description = d; }
+	string getDescription() { return description; }
+	void setDescription(string d) { description = d; }
 
-	std::string getProject() { return project; }
-	void setProject(std::string p) { project = p; }
+	string getProject() { return project; }
+	void setProject(string p) { project = p; }
 	////
 	date getDueDate() { return dueDate; }
 	void setDueDate(date d) { dueDate = d; }
@@ -67,11 +97,11 @@ public:
 	date getTimeElapse() { return timeElapse; }
 	void setTimeElapse(date d) { timeElapse = d; }
 	////
-	unsigned int getPriority() { return priority; }
-	void setPriority(unsigned int i) { priority = i; }
+	int getPriority() { return priority; }
+	void setPriority(int i) { priority = i; }
 
-	unsigned int getPrereq() { return prereq; }
-	void setPrereq(unsigned int i) { prereq = i; }
+	int getPrereq() { return prereq; }
+	void setPrereq(int i) { prereq = i; }
 	
 };
 
