@@ -13,12 +13,10 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <string.h>
+#include <ctime>
 #include <set>
 #include <algorithm>
 using namespace std;
-
-#include "boost/date_time/gregorian/gregorian.hpp"
-using namespace boost::gregorian;
 
 #ifndef LIST_H_INCLUDE
 #define LIST_H_INCLUDE
@@ -29,7 +27,7 @@ class activeListClass {
 	int idCount;
 
 public:
-	listClass()
+	activeListClass()
 	{
 		idCount=0;
 	}
@@ -119,16 +117,37 @@ public:
 	{  
 		++idCount;
 		taskClass t = taskClass(apt, idCount, name, description, project, dueDate, timeEst, priority, prereq);
+		
+		//should push to 'priority location if prerequ not violated
+		//if apt, ignore prority
 		list.push_back(t);
 	}
 	
-	vector<taskClass> reSort()
+	
+	
+	/*taskClass nextApt()
 	{
-		vector<taskClass> tasks=showTask();
 		vector<taskClass> apts=showApt();
 		
+		return next;
+	}*/
 	
+
 	
+	vector<taskClass> showInCorrectOrder()
+	{
+		//assumes tasks in correct order already
+		vector<taskClass> orderedList=showTask();
+		vector<taskClass> apts=showApt();
+		
+		sort (apts.begin(), apts.end());
+
+		for(int i=0; i<apts.size(); ++i)
+		{
+			//currentTimeapts{i}.dueDate();
+		}
+	
+		return apts;
 	
 	}
 	

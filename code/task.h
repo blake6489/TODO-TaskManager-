@@ -14,11 +14,12 @@
 #include <fcntl.h>
 #include <string.h>
 #include <set>
+#include <ctime>
 #include <algorithm>
 using namespace std;
 
-#include "boost/date_time/gregorian/gregorian.hpp"
-using namespace boost::gregorian;
+
+
 
 #ifndef TASK_H_INCLUDE
 #define TASK_H_INCLUDE
@@ -61,7 +62,7 @@ public:
 		project=pro;
 		dueDate=due;
 		timeEst=time;
-		timeElapse=date(1500,1,1);
+		timeElapse=date(1);
 		priority=pri;    
 		prereq=pre;
 		
@@ -103,9 +104,15 @@ public:
 	int getPrereq() { return prereq; }
 	void setPrereq(int i) { prereq = i; }
 	
+	
+
+ 
+	//bool dateCompa( taskClass &a, taskClass &b) {return a.getDueDate() < b.getDueDate();}
 };
 
 
+bool operator< ( taskClass a, taskClass b) {return a.getDueDate() < b.getDueDate();}
+//bool operator< ( taskClass a, taskClass b) {return a.getPriority() < b.getPriority();}
 
 
 
