@@ -35,8 +35,8 @@ private:
 	string description;
 	string project;
 	date dueDate;
-	duration timeEst;
-	duration timeElapse;
+	date timeEst;
+	date timeElapse;
 	int priority;    
     int prereq;
 	  
@@ -48,7 +48,7 @@ public:
 		string des,
 		string pro,
 		date due,
-		duration time,
+		date time,
 		int pri = -1,
 		int pre = -1)
 	{
@@ -62,7 +62,7 @@ public:
 		project=pro;
 		dueDate=due;
 		timeEst=time;
-		timeElapse=duration(0);
+		timeElapse=date((time_t) 0);
 		priority=pri;    
 		prereq=pre;
 		
@@ -92,11 +92,11 @@ public:
 	date getDueDate() { return dueDate; }
 	void setDueDate(date d) { dueDate = d; }
 
-	duration getTimeEst() { return timeEst; }
-	void setTimeEst(duration d) { timeEst = d; }
+	date getTimeEst() { return timeEst; }
+	void setTimeEst(date d) { timeEst = d; }
 
-	duration getTimeElapse() { return timeElapse; }
-	void setTimeElapse(duration d) { timeElapse = d; }
+	date getTimeElapse() { return timeElapse; }
+	void setTimeElapse(date d) { timeElapse = d; }
 	////
 	int getPriority() { return priority; }
 	void setPriority(int i) { priority = i; }
