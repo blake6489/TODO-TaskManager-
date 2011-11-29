@@ -111,7 +111,7 @@ public:
 		string description,
 		string project,
 		date dueDate,
-		date timeEst,
+		duration timeEst,
 		int priority = -1,
 		int prereq = -1) 
 	{  

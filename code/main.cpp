@@ -32,17 +32,21 @@ int main (int argc, char* argv[])
 	//time in seconds when appointments move
 	int AppointmentDelay = 15*60;
 
+
+   cout << "The UTC date and time is:"<<    date(111,3,4) << endl;
+
+
 	activeListClass p;
-	p.push(false, "namething1", "descprojectthing", "projectthing", date(2000,1,1), date(2001,2,2), 0);
-	p.push(false, "namething2", "descprojectthing", "projectthing", date(2000,6,1), date(2001,2,2), 0);
-	p.push(false, "namething3", "descprojectthing", "projectthing", date(2000,3,1), date(2001,2,2), 0);
+	p.push(false, "namething1", "descprojectthing", "projectthing", date(100,1,1), duration(1), 0);
+	p.push(false, "namething2", "descprojectthing", "projectthing", date(100,6,1), duration(1), 0);
+	p.push(false, "namething3", "descprojectthing", "projectthing", date(111,3,1), duration(1), 0);
 	
-	p.push(true, "namething1", "descprojectthing", "projectthing", date(2000,1,2), date(2001,2,2), 0);
-	p.push(true, "namething2", "descprojectthing", "projectthing", date(2000,5,1), date(2001,2,2), 0);
+	p.push(true, "namething1", "descprojectthing", "projectthing", date(110,1,2), duration(1), 0);
+	p.push(true, "namething2", "descprojectthing", "projectthing", date(111,5,1), duration(1), 0);
 	
-	p.push(false, "namething3", "descprojectthing", "projectthing", date(2000,2,1), date(2001,2,2), 0);
+	p.push(false, "namething3", "descprojectthing", "projectthing", date(110,2,1), duration(1), 0);
 	
-	//cout<<p.top()<<endl;
+	cout<<p.top()<<endl;
 	
 	vector<taskClass> o=p.showInCorrectOrder();
 
@@ -53,7 +57,7 @@ int main (int argc, char* argv[])
 
 
 
-cout<< time_t<<endl;
+
 
 
 
