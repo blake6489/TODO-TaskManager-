@@ -25,10 +25,11 @@ class activeListClass {
 	
 	vector<taskClass> list;
 	int idCount;
-	int aptDelay;
+	
+	int aptDelay; //for every aptDelay seconds till the meeting, the apt will apear 1 line down in the list
 
 public:
-	activeListClass(int idC=0,int aptD=60*60)
+	activeListClass(int idC=0,int aptD=15*60)
 	{
 		idCount=idC;
 		aptDelay=aptD;
@@ -118,11 +119,10 @@ public:
 		int prereq = -1) 
 	{  
 		++idCount;
+		vector<taskClass>::iterator it;
+		it = list.begin()+priority;
 		taskClass t = taskClass(apt, idCount, name, description, project, dueDate, timeEst, priority, prereq);
-		
-		//should push to 'priority location if prerequ not violated
-		//if apt, ignore prority
-		list.push_back(t);
+		list.insert(it,t);
 	}
 	
 	
@@ -152,13 +152,10 @@ public:
 		for(int i=apts.size()-1; i>=0; --i)
 		{
 			secdiff=difftime(apts[i].getDueDate_t(),now);
-			cout<<"sec"<<secdiff<<endl;
 			
-			if(secdiff<0){cout<<"appointment in the past detected in showInCorrectOrder"<<endl;}
+			if(secdiff<0){cout<<"***********appointment in the past detected in showInCorrectOrder***********"<<endl;}
 			
 			pos=(int)(secdiff/aptDelay);
-			cout<<"pos"<<pos<<endl;
-			cout<<"i"<<i<<endl;
 			it = orderedList.begin()+pos;
 			
 			if(pos>orderedList.size())

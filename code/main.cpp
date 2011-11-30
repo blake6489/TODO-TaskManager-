@@ -43,9 +43,10 @@ int main (int argc, char* argv[])
 	p.push(false, "namething3", "descprojectthing", "projectthing", date(111,11,1), date((time_t) 1), 0);
 	
 	p.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 1), 0);
-	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+3600*2), date((time_t) 1), 0);
+	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+400), date((time_t) 1), 0);
+	p.push(true, "namething7", "descprojectthing", "projectthing", date(now+500), date((time_t) 1), 1);
 	
-	p.push(false, "namething5", "descprojectthing", "projectthing", date(111,11,4), date((time_t) 1), 0);
+	p.push(false, "namething5", "descprojectthing", "projectthing", date(111,11,4), date((time_t) 1), 4);
 	
 	cout<<p.top()<<endl;
 	

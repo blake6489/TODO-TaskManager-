@@ -142,7 +142,7 @@ bool operator< ( taskClass a, taskClass b) {return a.getDueDate() < b.getDueDate
 ostream &operator<<(ostream &out, taskClass t)     //output
 {
 out.width(0);
-	out<< t.getInactive()<< ", "<< t.getApt()<< ", "<< t.getId()<< ", "<< t.getName()<< ", "<< t.getDescription()<< ", "<< t.getProject()<< ", "<< t.getDueDate()<< ", "<< t.getTimeEst()<< ", "<< t.getTimeElapse()<< ", "<< t.getPriority()<< ", "<< t.getPrereq();
+	out<<t.getId()<< ", " << t.getInactive()<< ", "<< t.getApt()<< ", "<< t.getId()<< ", "<< t.getName()<< ", "<< t.getDescription()<< ", "<< t.getProject()<< ", "<< t.getDueDate()<< ", "<< t.getTimeEst()<< ", "<< t.getTimeElapse()<< ", "<< t.getPriority()<< ", "<< t.getPrereq();
 	return out;
 }
 
