@@ -39,7 +39,7 @@ public:
 		if(p==NULL)
 		{
 			time=0;
-			cout<< "date(char*) given wrong info"<<endl;
+			cout<< "***********date(char*) given wrong info***********"<<endl;
 		}
 		else
 		{
@@ -53,16 +53,15 @@ public:
 	int getDuration(){return time;}
 	
 	tm print(){return *localtime(&time);}
-
-
-
 };
 
 bool operator< ( date a, date b) {return a.getDuration() < b.getDuration();}
 
 ostream &operator<<(ostream &out, date d)     //output
 {
-	out<< asctime(&d.print());
+	string ss=asctime(&d.print());
+	string s=ss.erase(ss.length()-1,ss.length());
+	out<< s;
 	return out;
 }
 

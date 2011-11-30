@@ -90,6 +90,7 @@ public:
 	void setProject(string p) { project = p; }
 	////
 	date getDueDate() { return dueDate; }
+	time_t getDueDate_t() { return dueDate.getDate(); }
 	void setDueDate(date d) { dueDate = d; }
 
 	date getTimeEst() { return timeEst; }
@@ -104,7 +105,13 @@ public:
 	int getPrereq() { return prereq; }
 	void setPrereq(int i) { prereq = i; }
 	
-	
+	/*ostream tableP()
+	{
+		ostream oo;
+		oo<< getInactive()<< getApt()<< getId()<< getName()<< getDescription()<< getProject()<< getDueDate()<< getTimeEst()<< getTimeElapse()<< getPriority()<< getPrereq();
+		
+		return oo;
+	}*/
 
  
 	//bool dateCompa( taskClass &a, taskClass &b) {return a.getDueDate() < b.getDueDate();}
@@ -116,7 +123,7 @@ bool operator< ( taskClass a, taskClass b) {return a.getDueDate() < b.getDueDate
 
 
 
- ostream &operator<<(ostream &out, taskClass t)     //output
+/*ostream &operator<<(ostream &out, taskClass t)     //output
 {
 	out<< "inactive:" 	<< t.getInactive()<<"\n";
 	out<< "apt:" 		<< t.getApt()<<"\n";
@@ -129,6 +136,13 @@ bool operator< ( taskClass a, taskClass b) {return a.getDueDate() < b.getDueDate
 	out<< "timeElapse:" << t.getTimeElapse()<<"\n";
 	out<< "priority:" 	<< t.getPriority()<<"\n";    
     out<< "prereq:" 	<< t.getPrereq()<<"\n";
+	return out;
+}*/
+
+ostream &operator<<(ostream &out, taskClass t)     //output
+{
+out.width(0);
+	out<< t.getInactive()<< ", "<< t.getApt()<< ", "<< t.getId()<< ", "<< t.getName()<< ", "<< t.getDescription()<< ", "<< t.getProject()<< ", "<< t.getDueDate()<< ", "<< t.getTimeEst()<< ", "<< t.getTimeElapse()<< ", "<< t.getPriority()<< ", "<< t.getPrereq();
 	return out;
 }
 

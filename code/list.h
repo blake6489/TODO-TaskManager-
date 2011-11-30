@@ -25,11 +25,13 @@ class activeListClass {
 	
 	vector<taskClass> list;
 	int idCount;
+	int aptDelay;
 
 public:
-	activeListClass()
+	activeListClass(int idC=0,int aptD=60*60)
 	{
-		idCount=0;
+		idCount=idC;
+		aptDelay=aptD;
 	}
 	
 	
@@ -138,16 +140,37 @@ public:
 	{
 		//assumes tasks in correct order already
 		vector<taskClass> orderedList=showTask();
+		vector<taskClass>::iterator it;
+
 		vector<taskClass> apts=showApt();
+		double secdiff=0;
+		int pos=0;
+		time_t now = time(0);
 		
 		sort (apts.begin(), apts.end());
 
-		for(int i=0; i<apts.size(); ++i)
+		for(int i=apts.size()-1; i>=0; --i)
 		{
-			//currentTimeapts{i}.dueDate();
+			secdiff=difftime(apts[i].getDueDate_t(),now);
+			cout<<"sec"<<secdiff<<endl;
+			
+			if(secdiff<0){cout<<"appointment in the past detected in showInCorrectOrder"<<endl;}
+			
+			pos=(int)(secdiff/aptDelay);
+			cout<<"pos"<<pos<<endl;
+			cout<<"i"<<i<<endl;
+			it = orderedList.begin()+pos;
+			
+			if(pos>orderedList.size())
+			{
+				orderedList.push_back(apts[i]);
+			}else{
+				orderedList.insert(it,apts[i]);
+			}
+			
 		}
 	
-		return apts;
+		return orderedList;
 	
 	}
 	
@@ -161,16 +184,5 @@ public:
 
 
 };
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

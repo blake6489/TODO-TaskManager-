@@ -149,7 +149,9 @@ char* itoa(int val, int base=10){
 }
 
 
-
+void stringToVector(vector<string> v, int p, string d){
+	
+}
 
 
 
