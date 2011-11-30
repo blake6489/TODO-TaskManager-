@@ -118,7 +118,7 @@ public:
 		date timeEst,
 		int priority = -1,
 		int prereq = -1) 
-	{  
+	{ 
 		++idCount;
 		vector<taskClass>::iterator it;
 		taskClass t = taskClass(apt, idCount, name, description, project, dueDate, timeEst, priority, prereq);
