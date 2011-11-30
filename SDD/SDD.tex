@@ -54,7 +54,7 @@
 {\huge \bfseries TODO: Task Management System}\\[1.2cm]
 {\large \bfseries CS 471}\\
 \vfill
-{\large \bfseries Draft 0.1.0}\\[2cm]
+{\large \bfseries Draft 0.1.1}\\[2cm]
 \emph{Prepared by:} \\
 Blake Eggemeyer \\ [3cm]
 % Bottom of the page
@@ -105,6 +105,8 @@ The {\tt 1998 - IEEE Standard for Information Technology -- Systems Design -- So
 \hline
 0.1.0 & Nov 21 & Version that will be turned in.\\
 \hline
+0.1.1 & Nov 30 & Makeing alterations for resubmission.\\
+\hline
 \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,7 +116,7 @@ The {\tt 1998 - IEEE Standard for Information Technology -- Systems Design -- So
 TODO will be implemented in C++ due to the programmers experience with that language.
 
 \subsection{Project Management}
-This project will use {\tt Git} version control in conjunction with {\tt GitHub} to keep track of changes.
+This project will use \e{Git} version control in conjunction with \e{GitHub} to keep track of changes. The repository can be reached at \url{https://github.com/blake6489/TODO-TaskManager-/}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Storage}\label{sec:Data Storage}
@@ -146,10 +148,10 @@ This project will use {\tt Git} version control in conjunction with {\tt GitHub}
 \paragraph{Priority:} Integer representing number of tasks from the top. This is recalculated every minute to move the appointment up the active list.
 
 \subsubsection{Active list} \label{sec:Active list}
-The active list will be recalculated form the \e{complete list} each time a recalculate is requested.  This will occur when changes are made to the items in the list and at scheduled intervals.
+The active list will be the list of all active items. The ordering of this list will represent the priority of the items in it with the items in the zeroth position being the most important.
 
-\subsubsection{Complete list} \label{sec:Complete list}
-The complete list will be the entirety of all items regardless of there completion status. This list will be only list which is stored. All other lists will be calculated from the complete list.  As the complete list grows in size performance may suffer. 
+\subsubsection{Inactive list} \label{sec:Inactive list}
+The Inactive list will be the entirety of all completed items. As the inactive list grows in size performance may suffer. 
 
 %%%%%%%%
 \section{Actions} \label{sec:Actions}
@@ -159,7 +161,7 @@ The complete list will be the entirety of all items regardless of there completi
 \paragraph{New item:} \label{sec:New item} By running \e{new} the user will add new items to the list and enter the necessary data fields.
 \paragraph{Working on top item in list:} \label{sec:Working on top} By running \e{top} the user will initiate the accumulation of time worked on the top item in the list. If there are no items in the list, the program will return test to the command shell stating \e{No items in list}.
 \paragraph{Mark inactive:} \label{sec:Mark inactive} By running \e{inactivate [Unique ID]} the specified task will be marked inactive and removed from view.
-\paragraph{Completed:} \label{sec:Completed} By running \e{complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating.
+\paragraph{Completed:} \label{sec:Completed} By running \e{complete} the top task in the list will be marked as inactive and completed, and the time worked will stop accumulating. The item will be moved to the Inactive list.
 \paragraph{Done for now:} \label{sec:Done for now} By running \e{stop} the top task in the list will stop accumulating time worked.
 \paragraph{Changing list order:} \label{sec:Change order} By running \e{move [Unique ID] [new priority]} the specified task will be moved to the specified priority position in the list, unless the prerequisites for that task are ahead of it. In this case the option will be given to move all prerequisites of this task to the specified position.
 %%%%
@@ -201,6 +203,7 @@ The user will see the list of tasks and appointments to be done in order of prio
 
 \subsection{Viewing All} \label{sec:View all}
 The user will see the entire list of work done on items regardless of completion status when executing the \e{all} or \e{export} functions.
+This view will match the active items table above, but with a few additional columns.
 
 \section{Interface}
 \subsection{Terminal}
@@ -235,7 +238,7 @@ TBD
 \hline
 ~\ref{sec:Active list}		&	&	&\c	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
-~\ref{sec:Complete list}	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&\c	&	&	\\
+~\ref{sec:Inactive list}	&	&	&	&\c	&	&	&	&	&	&	&	&	&	&\c	&	&	\\
 \hline
 ~\ref{sec:New item}			&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	&	\\
 \hline
