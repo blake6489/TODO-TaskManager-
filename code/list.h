@@ -27,7 +27,8 @@ class activeListClass {
 	int idCount;
 	
 	int aptDelay; //for every aptDelay seconds till the meeting, the apt will apear 1 line down in the list
-
+	int workingOn; // item being worked on by uniqueId
+	date startTime; 
 public:
 	activeListClass(int idC=0,int aptD=15*60)
 	{
@@ -120,9 +121,14 @@ public:
 	{  
 		++idCount;
 		vector<taskClass>::iterator it;
-		it = list.begin()+priority;
 		taskClass t = taskClass(apt, idCount, name, description, project, dueDate, timeEst, priority, prereq);
-		list.insert(it,t);
+		it = list.begin()+priority;
+		if(priority>list.size() || priority < 0)
+		{
+			list.push_back(t);
+		}else{
+			list.insert(it,t);
+		}
 	}
 	
 	
@@ -171,8 +177,20 @@ public:
 	
 	}
 	
-	//how?
-	void makeInactive(){}
+	
+	void workingOnTop()
+	{
+		time_t now = time(0);
+		if(workingOn == -1){
+			list.getById(workingOn).setTimeElapse( difftime(startTime.getDate(),now) );
+		}
+		
+		workingOn=list[0].uniqueId;
+
+		
+		
+		startTime=date(now);
+	}
 	
 	
 	

@@ -37,7 +37,7 @@ private:
 	date dueDate;
 	date timeEst;
 	date timeElapse;
-	int priority;    
+	int priority;    // this repesents only the initial position of the task in the list before others are added and displace it
     int prereq;
 	  
 public:

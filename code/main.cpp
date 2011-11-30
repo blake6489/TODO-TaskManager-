@@ -40,10 +40,10 @@ int main (int argc, char* argv[])
 	activeListClass p;
 	p.push(false, "namething1", "descprojectthing", "projectthing", date(111,10,29,5), date((time_t) 1), 0);
 	p.push(false, "namething6", "descprojectthing", "projectthing", date(111,11,6), date((time_t) 1), 0);
-	p.push(false, "namething3", "descprojectthing", "projectthing", date(111,11,1), date((time_t) 1), 0);
+	p.push(false, "namething3", "descprojectthing", "projectthing", date(111,11,1), date((time_t) 1), 5);
 	
 	p.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 1), 0);
-	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+400), date((time_t) 1), 0);
+	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+400), date((time_t) 1), 2);
 	p.push(true, "namething7", "descprojectthing", "projectthing", date(now+500), date((time_t) 1), 1);
 	
 	p.push(false, "namething5", "descprojectthing", "projectthing", date(111,11,4), date((time_t) 1), 4);
