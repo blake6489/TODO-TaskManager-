@@ -24,6 +24,7 @@ using namespace std;
 class taskClass
 {
 private:
+	bool completed;
 	bool inactive;
 	bool apt;
 	int id;
@@ -40,6 +41,7 @@ private:
 public:
 	taskClass(){ //null task
 		inactive=false;
+		completed=false;
 		
 		apt=0;
 		id=0;
@@ -61,7 +63,8 @@ public:
 		int pre = -1)
 	{
 		inactive=false;
-		
+		completed=false;
+				
 		apt=a;
 		id=i;
 		
@@ -81,6 +84,9 @@ public:
 public:
 	bool getInactive() { return inactive; }
 	void setInactive(bool i) { inactive = i; }
+
+	bool getCompleted() { return completed; }
+	void setCompleted(bool i) { completed = i; }
 
 	bool getApt() { return apt; }
 	void setApt(bool i) { apt = i; }
@@ -150,7 +156,7 @@ bool operator< ( taskClass a, taskClass b) {return a.getDueDate() < b.getDueDate
 ostream &operator<<(ostream &out, taskClass t)     //output
 {
 out.width(0);
-	out<<t.getId()<< ", " << t.getInactive()<< ", "<< t.getApt()<< ", "<< t.getName()<< ", "<< t.getDescription()<< ", "<< t.getProject()<< ", "<< t.getDueDate()<< ", "<< t.getTimeEst().getDuration()<< ", "<< t.getTimeElapse().getDuration()<< ", "<< t.getPriority()<< ", "<< t.getPrereq();
+	out<<t.getId()<< ", " << t.getCompleted()<< ", " << t.getInactive()<< ", "<< t.getApt()<< ", "<< t.getName()<< ", "<< t.getDescription()<< ", "<< t.getProject()<< ", "<< t.getDueDate()<< ", "<< t.getTimeEst().getDuration()<< ", "<< t.getTimeElapse().getDuration()<< ", "<< t.getPriority()<< ", "<< t.getPrereq();
 	return out;
 }
 

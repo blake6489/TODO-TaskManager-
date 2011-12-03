@@ -25,9 +25,16 @@ using namespace std;
 
 
 
-void completed(taskClass* t, inactiveListClass* in )
+void completed(int i,activeListClass* act, inactiveListClass* in )
 {
-	(*in).push((*t));
+	taskClass* t = act->getById(i);
+	t->setCompleted(true);
+	in->push(act->markInactive(i));
+}
+
+void inactive(int i,activeListClass* act, inactiveListClass* in )
+{
+	in->push(act->markInactive(i));
 }
 
 int main (int argc, char* argv[])
@@ -47,7 +54,7 @@ int main (int argc, char* argv[])
 	p.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 5);
 	
 	p.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
-	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+1030), date((time_t) 500), 2);
+	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 2);
 	p.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 1);
 	
 	p.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
@@ -85,16 +92,22 @@ cout<<"**"<<endl;
 	}
 	
 	
-	completed(p.getById(4),&inactiveList);
+	completed(4,&p,&inactiveList);
 	
-	
+	cout <<"*#4 completed*"<<endl;
 	o=inactiveList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	cout <<"**"<<endl;
+	o=p.showInCorrectOrder();
+
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
 	
 	
-
+	
 	string u=fileReadMmap("README");
 	
 	return 0;

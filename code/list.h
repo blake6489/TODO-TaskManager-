@@ -130,9 +130,7 @@ public:
 			list.insert(it,t);
 		}
 	}
-	
-	
-	
+
 	taskClass* getById(int i)
 	{
 		if(i>idCount){return &(taskClass());}
@@ -143,10 +141,33 @@ public:
 		}
 		cout<<"*****getbyid problem, not here********"<<endl;
 		return &(taskClass());
-		
 	}
 	
+	void removeById(int i)
+	{
+		vector<taskClass>::iterator it;
+		for( int n=0; n<list.size(); n++){
+			if(list[n].getId()==i){
+				it = list.begin()+n;
+				list.erase(it);
+				cout<<"*****removed********"<<endl;
+			}
+		}
 
+
+	}
+	
+		taskClass getByIdNoPtr(int i)
+	{
+		if(i>idCount){return (taskClass());}
+		for( int n=0; n<list.size(); n++){
+			if(list[n].getId()==i){
+				return (list[n]);
+			}
+		}
+		cout<<"*****getbyid problem, not here********"<<endl;
+		return (taskClass());
+	}
 	
 	vector<taskClass> showInCorrectOrder()
 	{
@@ -212,7 +233,15 @@ public:
 		startTime=date(now);
 	}
 	
-	//taskClass top() { return list[0]; }
+	taskClass markInactive(int i)
+	{
+		taskClass t = getByIdNoPtr(i);
+		removeById(i);
+				cout<<"*****inactivated********"<<endl;
+		t.setInactive(true);
+		return t;
+		
+	}
 
 
 

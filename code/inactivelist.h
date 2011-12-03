@@ -37,15 +37,9 @@ public:
 	vector<taskClass> show(int n=-1) 
 	{ 
 		vector<taskClass> ret;
-		int c=0;
-		if (n<0){c=-2147483647;}
-		int i=0;
-		while(c<n && i<list.size()){
-			if(!(list[i].getInactive())){			
-				ret.push_back(list[i]);
-				++c;
-			}
-			++i;
+		if(n==-1){n=list.size();}
+		for(int i=0 ; i<n ; ++i){
+			ret.push_back(list[i]);
 		}
 		return ret; 
 	}
