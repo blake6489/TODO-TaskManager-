@@ -133,16 +133,16 @@ public:
 	
 	
 	
-	taskClass getById(int i)
+	taskClass* getById(int i)
 	{
-		if(i>idCount){return taskClass();}
+		if(i>idCount){return &(taskClass());}
 		for( int n=0; n<list.size(); n++){
 			if(list[n].getId()==i){
-				return list[n];
+				return &(list[n]);
 			}
 		}
 		cout<<"*****getbyid problem, not here********"<<endl;
-		return taskClass();
+		return &(taskClass());
 		
 	}
 	
@@ -196,11 +196,12 @@ public:
 	void timerAdvance()//executed every time someone wants to see the time
 	{
 		time_t now = time(0);
-		taskClass *task=*getById(workingOn);
-		cout<<"&&"<<difftime(startTime.getDate(),now) + &task.getTimeElapse().getDate()<<"&&"<<endl;
-		task.setTimeElapse( difftime(startTime.getDate(),now) + task.getTimeElapse().getDate());
-		cout<<"&&"<<difftime(task.getTimeEst().getDate() , difftime(startTime.getDate(),now) )<<"&&"<<endl;
-		task.setTimeEst( difftime(task.getTimeEst().getDate() , difftime(startTime.getDate(),now) ) );
+		taskClass* task=getById(workingOn);
+		cout<<"&&"<<difftime(startTime.getDate(),now) + (*task).getTimeElapse().getDate()<<"&&"<<endl;
+		(*task).setTimeElapse( difftime(startTime.getDate(),now) + (*task).getTimeElapse().getDate());
+		cout<<"&&"<<difftime((*task).getTimeEst().getDate() , difftime(startTime.getDate(),now) )<<"&&"<<endl;
+		(*task).setTimeEst( difftime((*task).getTimeEst().getDate() , difftime(startTime.getDate(),now) ) );
+		
 		startTime=date(now);
 	}
 	
