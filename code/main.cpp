@@ -64,6 +64,21 @@ int main (int argc, char* argv[])
 	}
 
 	cout<<endl;
+	
+	p.workingOnTop();
+	p.timerAdvance();
+	o=p.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+
+	wait(30);
+cout<<"**"<<endl;
+	p.timerAdvance();
+	o=p.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
 
 	string u=fileReadMmap("README");
 	

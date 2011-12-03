@@ -189,11 +189,17 @@ public:
 		}*/
 		
 		workingOn=list[0].getId();
-
-		
 		startTime=date(now);
 	}
 	
+	void timerAdvance()//executed every time someone wants to see the time
+	{
+		time_t now = time(0);
+		taskClass task=getById(workingOn);
+		task.setTimeElapse( difftime(startTime.getDate(),now) + task.getTimeElapse().getDate());
+		task.setTimeEst( difftime(task.getTimeEst().getDate() , difftime(startTime.getDate(),now) ) );
+		startTime=date(now);
+	}
 	
 	//taskClass top() { return list[0]; }
 
