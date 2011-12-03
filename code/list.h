@@ -189,14 +189,17 @@ public:
 		}*/
 		
 		workingOn=list[0].getId();
+		cout<<"&&workingon"<<workingOn<<"&&"<<endl;
 		startTime=date(now);
 	}
 	
 	void timerAdvance()//executed every time someone wants to see the time
 	{
 		time_t now = time(0);
-		taskClass task=getById(workingOn);
+		taskClass *task=*getById(workingOn);
+		cout<<"&&"<<difftime(startTime.getDate(),now) + &task.getTimeElapse().getDate()<<"&&"<<endl;
 		task.setTimeElapse( difftime(startTime.getDate(),now) + task.getTimeElapse().getDate());
+		cout<<"&&"<<difftime(task.getTimeEst().getDate() , difftime(startTime.getDate(),now) )<<"&&"<<endl;
 		task.setTimeEst( difftime(task.getTimeEst().getDate() , difftime(startTime.getDate(),now) ) );
 		startTime=date(now);
 	}

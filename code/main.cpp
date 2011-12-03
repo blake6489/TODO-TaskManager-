@@ -72,7 +72,7 @@ int main (int argc, char* argv[])
 		cout<<o[i]<<endl;
 	}
 
-	wait(30);
+	wait(10);
 cout<<"**"<<endl;
 	p.timerAdvance();
 	o=p.showInCorrectOrder();
