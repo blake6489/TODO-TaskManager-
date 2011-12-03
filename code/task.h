@@ -18,9 +18,6 @@
 #include <algorithm>
 using namespace std;
 
-
-
-
 #ifndef TASK_H_INCLUDE
 #define TASK_H_INCLUDE
 

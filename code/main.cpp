@@ -21,14 +21,17 @@ using namespace std;
 #include "tools/utils.cpp"
 #include "task.h"
 #include "list.h"
+#include "inactivelist.h"
 
 
+
+void completed(taskClass* t, inactiveListClass* in )
+{
+	(*in).push((*t));
+}
 
 int main (int argc, char* argv[])
 {
-
-	
-
 	//time in seconds when appointments move
 	//they will be one element down for every one of these
 
@@ -38,6 +41,7 @@ int main (int argc, char* argv[])
 
 
 	activeListClass p;
+	inactiveListClass inactiveList;
 	p.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 	p.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
 	p.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 5);
@@ -79,6 +83,17 @@ cout<<"**"<<endl;
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
+	
+	
+	completed(p.getById(4),&inactiveList);
+	
+	
+	o=inactiveList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	
+	
 
 	string u=fileReadMmap("README");
 	
