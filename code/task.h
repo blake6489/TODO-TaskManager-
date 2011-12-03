@@ -41,6 +41,17 @@ private:
     int prereq;
 	  
 public:
+	taskClass(){ //null task
+		inactive=false;
+		
+		apt=0;
+		id=0;
+		
+		timeElapse=date((time_t) 0);
+		priority=0;    
+		prereq=0;
+	}
+	
 	taskClass(
 		bool a,
 		int i,

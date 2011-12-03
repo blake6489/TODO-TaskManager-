@@ -48,7 +48,7 @@ public:
 		if (n<0){c=-2147483647;}
 		int i=0;
 		while(c<n && i<list.size()){
-			if((list[i].getInactive())){			
+			if(!(list[i].getInactive())){			
 				ret.push_back(list[i]);
 				++c;
 			}
@@ -133,12 +133,18 @@ public:
 	
 	
 	
-	/*taskClass nextApt()
+	taskClass getById(int i)
 	{
-		vector<taskClass> apts=showApt();
+		if(i>idCount){return taskClass();}
+		for( int n=0; n<list.size(); n++){
+			if(list[n].getId()==i){
+				return list[n];
+			}
+		}
+		cout<<"*****getbyid problem, not here********"<<endl;
+		return taskClass();
 		
-		return next;
-	}*/
+	}
 	
 
 	
@@ -170,28 +176,23 @@ public:
 			}else{
 				orderedList.insert(it,apts[i]);
 			}
-			
 		}
-	
 		return orderedList;
-	
 	}
 	
 	
 	void workingOnTop()
 	{
 		time_t now = time(0);
-		if(workingOn == -1){
-			list.getById(workingOn).setTimeElapse( difftime(startTime.getDate(),now) );
-		}
+		/*if(workingOn != -1){
+			getById(workingOn).setTimeElapse( difftime(startTime.getDate(),now) );
+		}*/
 		
-		workingOn=list[0].uniqueId;
+		workingOn=list[0].getId();
 
-		
 		
 		startTime=date(now);
 	}
-	
 	
 	
 	//taskClass top() { return list[0]; }
