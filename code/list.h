@@ -235,14 +235,13 @@ public:
 	
 	void workingOnTop()
 	{
-		time_t now = time(0);
-		/*if(workingOn != -1){
-			getById(workingOn).setTimeElapse( difftime(startTime.getDate(),now) );
-		}*/
-		
-		workingOn=list[0].getId();
-		//cout<<"&&workingon"<<workingOn<<"&&"<<endl;
-		startTime=date(now);
+		if(workingOn != -1){
+			cout<<"*****Already working on "<< workingOn <<"*****"<<endl;
+		}else{
+			time_t now = time(0);
+			workingOn=showInCorrectOrder().at(0).getId();
+			startTime=date(now);
+		}
 	}
 	
 	void stopWorkingOnTop()
