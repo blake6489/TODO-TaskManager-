@@ -34,7 +34,10 @@ public:
 	{
 		idCount=idC;
 		aptDelay=aptD;
+		workingOn=-1;
+		startTime=date((time_t) 0);
 	}
+	
 	
 	
 public:
@@ -112,7 +115,7 @@ public:
 		return ret; 
 	}
 	
-	int push(
+	void push(
 		bool apt,
 		string name,
 		string description,
@@ -129,26 +132,27 @@ public:
 		if(priority>list.size() || priority < 0)
 		{
 			list.push_back(t);
-			return -1;
+
 		}else{
+
 			if(prereq!=-1){
+			cout<<"*prereq testing*"<<endl;
+			
 				for(int i = priority; i<list.size() ; ++i){
 					if(list[i].getId()==prereq){
 						cout<<"prerequ violation in add, prereq lower in list that new item"<<endl;
 						--idCount;
-						return prereq;
+						return ;
 					}
 				}
 			}
 			list.insert(it,t);
-			return -1;
-		
+	
 		}
 	}
 
 	taskClass* getById(int i)
 	{
-		timerAdvance();
 		if(i>idCount){return &(taskClass());}
 		for( int n=0; n<list.size(); n++){
 			if(list[n].getId()==i){
@@ -169,8 +173,6 @@ public:
 				cout<<"*****removed********"<<endl;
 			}
 		}
-
-
 	}
 	
 	taskClass getByIdNoPtr(int i)
@@ -239,7 +241,7 @@ public:
 		}*/
 		
 		workingOn=list[0].getId();
-		cout<<"&&workingon"<<workingOn<<"&&"<<endl;
+		//cout<<"&&workingon"<<workingOn<<"&&"<<endl;
 		startTime=date(now);
 	}
 	
@@ -247,26 +249,27 @@ public:
 	{
 		timerAdvance();
 		workingOn=-1;
-		cout<<"&&Done workingon"<<workingOn<<"&&"<<endl;
+		//cout<<"&&Done workingon"<<workingOn<<"&&"<<endl;
 	}
 	
 	void timerAdvance()//executed every time someone wants to see the time
 	{
-		time_t now = time(0);
-		taskClass* task=getById(workingOn);
-		cout<<"&&"<<difftime(startTime.getDate(),now) + (*task).getTimeElapse().getDate()<<"&&"<<endl;
-		(*task).setTimeElapse( difftime(now,startTime.getDate()) + (*task).getTimeElapse().getDate());
-		cout<<"&&"<<difftime((*task).getTimeEst().getDate() , difftime(startTime.getDate(),now) )<<"&&"<<endl;
-		(*task).setTimeEst( difftime((*task).getTimeEst().getDate() , difftime(now,startTime.getDate()) ) );
+		if(workingOn!=-1){
+			time_t now = time(0);
+
+			taskClass* task=getById(workingOn);
+			(*task).setTimeElapse( difftime(now,startTime.getDate()) + (*task).getTimeElapse().getDate());
+			(*task).setTimeEst( difftime((*task).getTimeEst().getDate() , difftime(now,startTime.getDate()) ) );
 		
-		startTime=date(now);
+			startTime=date(now);
+		}
 	}
 	
 	taskClass markInactive(int i)
 	{
 		taskClass t = getByIdNoPtr(i);
 		removeById(i);
-				cout<<"*****inactivated********"<<endl;
+cout<<"*****inactivated*****"<<endl;
 		t.setInactive(true);
 		return t;
 		
@@ -280,7 +283,7 @@ public:
 		
 		for(int i = dst; i<n ; ++i){
 			if(list[n].getId()==p){
-				cout<<"prerequ violation in move"<<endl;
+				cout<<"*****prerequ violation in move*****"<<endl;
 				return p;
 			}
 		}
@@ -291,7 +294,7 @@ public:
 			removeById(src);
 			list.insert(it,t);
 		}else{
-			cout<<"prerequ violation in move"<<endl;
+			cout<<"*****prerequ violation in move*****"<<endl;
 			return p;
 		}
 		return -1;

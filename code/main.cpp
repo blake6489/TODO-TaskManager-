@@ -44,60 +44,60 @@ int main (int argc, char* argv[])
 
 time_t now = time (NULL);
 
-	activeListClass p;
+	activeListClass activeList;
 	inactiveListClass inactiveList;
 	
-	p.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
-	p.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0, 1);
-	p.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 5,2);
-	p.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
-	p.push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 2);
-	p.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 1);
-	p.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
+	activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
+	activeList.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
+	activeList.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 2 , 1);
+	activeList.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 3 );
+	activeList.push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 4);
+	activeList.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 4);
+	activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
 	
-	cout<<endl;
+cout <<"*4 tasks and 3 apointments added*"<<endl;
 	
-	vector<taskClass> o=p.show();
-	
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-	cout<<"**"<<endl;
-		
-	o=p.showInCorrectOrder();
-
+	vector<taskClass> o=activeList.show();
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
 
-	cout<<endl;
+cout <<"*correct order*"<<endl;
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+
+cout <<"*workingontop - timer advance - corrent order*"<<endl;
 	
-	p.workingOnTop();
-	p.timerAdvance();
-	o=p.showInCorrectOrder();
+	activeList.workingOnTop();
+	activeList.timerAdvance();
+	o=activeList.showInCorrectOrder();
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
 
 	wait(10);
-cout<<"**"<<endl;
-	p.stopWorkingOnTop();
-	p.timerAdvance();
-	o=p.showInCorrectOrder();
+
+cout <<"*stop working - timeradvance - correct order*"<<endl;
+	activeList.stopWorkingOnTop();
+	activeList.timerAdvance();
+	o=activeList.showInCorrectOrder();
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
 	
-	completed(4,&p,&inactiveList);
-	
-	cout <<"*#4 completed*"<<endl;
+cout <<"*#5 completed*"<<endl;
+	completed(5,&activeList,&inactiveList);
+
+cout <<"*show inactive list*"<<endl;
 	o=inactiveList.show();
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
-	cout <<"**"<<endl;
-	o=p.showInCorrectOrder();
 
+cout <<"*show in correct order - active*"<<endl;
+	o=activeList.showInCorrectOrder();
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
