@@ -22,7 +22,7 @@ using namespace std;
 #include "task.h"
 #include "list.h"
 #include "inactivelist.h"
-
+#include "command_parse.h"
 
 
 void completed(int i,activeListClass* act, inactiveListClass* in )
@@ -39,9 +39,16 @@ void inactive(int i,activeListClass* act, inactiveListClass* in )
 
 int main (int argc, char* argv[])
 {
-	//time in seconds when appointments move
-	//they will be one element down for every one of these
 
+	vector<string> inputs;
+	for(int i=1; i<argc; ++i){	inputs.push_back(string(argv[i]));	}
+
+	parser(inputs);
+
+
+
+
+/*
 time_t now = time (NULL);
 
 	activeListClass activeList;
@@ -141,7 +148,11 @@ cout <<"*stop working - correct order*"<<endl;
 		cout<<o[i]<<endl;
 	}	
 	
-	string u=fileReadMmap("README");
 	
+	
+	string u=fileReadMmap("README");
+*/
+
+
 	return 0;
 }
