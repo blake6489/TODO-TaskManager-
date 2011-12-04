@@ -101,6 +101,22 @@ cout <<"*show in correct order - active*"<<endl;
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
+
+cout <<"*move #7 to pos 3 - show in correct order*"<<endl;	
+	activeList.move(7,3);
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	
+
+cout <<"*move #3 to pos 1 - show in correct order ### should fail*"<<endl;	
+	activeList.move(3,1);
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	
 	
 	
 	
