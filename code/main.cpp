@@ -69,7 +69,6 @@ cout <<"*correct order*"<<endl;
 	}
 
 cout <<"*workingontop - timer advance - corrent order*"<<endl;
-	
 	activeList.workingOnTop();
 	activeList.timerAdvance();
 	o=activeList.showInCorrectOrder();
@@ -77,7 +76,7 @@ cout <<"*workingontop - timer advance - corrent order*"<<endl;
 		cout<<o[i]<<endl;
 	}
 
-	wait(10);
+	wait(5);
 
 cout <<"*stop working - timeradvance - correct order*"<<endl;
 	activeList.stopWorkingOnTop();
@@ -109,7 +108,6 @@ cout <<"*move #7 to pos 3 - show in correct order*"<<endl;
 		cout<<o[i]<<endl;
 	}
 	
-
 cout <<"*move #3 to pos 1 - show in correct order ### should fail*"<<endl;	
 	activeList.move(3,1);
 	o=activeList.showInCorrectOrder();
@@ -117,8 +115,31 @@ cout <<"*move #3 to pos 1 - show in correct order ### should fail*"<<endl;
 		cout<<o[i]<<endl;
 	}
 	
+cout <<"*workingontop - corrent order*"<<endl;
+	activeList.workingOnTop();
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+
+	wait(5);
 	
-	
+cout <<"*workingontop again ### fails - corrent order*"<<endl;
+	activeList.workingOnTop();
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+
+	wait(5);
+
+cout <<"*stop working - correct order*"<<endl;
+	activeList.stopWorkingOnTop();
+	activeList.timerAdvance();
+	o=activeList.showInCorrectOrder();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}	
 	
 	string u=fileReadMmap("README");
 	

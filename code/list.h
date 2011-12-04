@@ -140,7 +140,7 @@ public:
 			
 				for(int i = priority; i<list.size() ; ++i){
 					if(list[i].getId()==prereq){
-						cout<<"prerequ violation in add, prereq lower in list that new item"<<endl;
+						cout<<"prereq violation in add, prereq lower in list that new item"<<endl;
 						--idCount;
 						return ;
 					}
@@ -283,18 +283,18 @@ cout<<"*****inactivated*****"<<endl;
 		
 		for(int i = dst; i<n ; ++i){
 			if(list[n].getId()==p){
-				cout<<"*****prerequ violation in move*****"<<endl;
+				cout<<"*****prereq violation in move*****"<<endl;
 				return p;
 			}
 		}
 		  
 		if(p==-1){
-			it = list.begin()+dst;
+			it = list.begin()+dst-1;
 			taskClass t = list[n];
 			removeById(src);
 			list.insert(it,t);
 		}else{
-			cout<<"*****prerequ violation in move*****"<<endl;
+			cout<<"*****prereq violation in move*****"<<endl;
 			return p;
 		}
 		return -1;
