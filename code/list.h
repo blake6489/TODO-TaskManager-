@@ -38,12 +38,9 @@ public:
 		startTime=date((time_t) 0);
 	}
 	
-	
-	
 public:
 	taskClass top() { return list[0]; }
 
-	
 	vector<taskClass> show(int n=-1) 
 	{ 
 		timerAdvance();
@@ -52,32 +49,13 @@ public:
 		if (n<0){c=-2147483647;}
 		int i=0;
 		while(c<n && i<list.size()){
-			if(!(list[i].getInactive())){			
-				ret.push_back(list[i]);
-				++c;
-			}
+			ret.push_back(list[i]);
+			++c;
 			++i;
 		}
 		return ret; 
 	}
 	
-	vector<taskClass> showInactive(int n=-1) 
-	{ 
-		//if n=-1, show all inactive
-		vector<taskClass> ret;
-		int c=0;
-		if (n<0){c=-2147483647;}
-		int i=0;
-		while(c<n && i<list.size()){
-			if((list[i].getInactive())){			
-				ret.push_back(list[i]);
-				++c;
-			}
-			++i;
-		}
-		return ret; 
-	}
-		
 	vector<taskClass> showApt(int n=-1) 
 	{ 
 		timerAdvance();
@@ -106,7 +84,7 @@ public:
 		if (n<0){c=-2147483647;}
 		int i=0;
 		while(c<n && i<list.size()){
-			if(!(list[i].getInactive()) && !(list[i].getApt())){			
+			if(!(list[i].getApt())){			
 				ret.push_back(list[i]);
 				++c;
 			}
@@ -248,7 +226,6 @@ public:
 	{
 		timerAdvance();
 		workingOn=-1;
-		//cout<<"&&Done workingon"<<workingOn<<"&&"<<endl;
 	}
 	
 	void timerAdvance()//executed every time someone wants to see the time
@@ -266,39 +243,53 @@ public:
 	
 	taskClass markInactive(int i)
 	{
-		taskClass t = getByIdNoPtr(i);
-		removeById(i);
+		if(workingOn == i){
+			cout<<"*****working on "<< workingOn <<" - must stop working *****"<<endl;
+			return taskClass();
+		}else{
+			taskClass t = getByIdNoPtr(i);
+			removeById(i);
 cout<<"*****inactivated*****"<<endl;
-		t.setInactive(true);
-		return t;
+			t.setInactive(true);
+			return t;
+		}
 		
 	}
 
 	int move(int src, int dst) //src is the id, dst is the new priority
 	{
-		vector<taskClass>::iterator it;
-		int n= getByIdNum(src);
-		int p= list[n].getPrereq();
+		if(workingOn != -1){
+			cout<<"*****working on "<< workingOn <<" - must stop working *****"<<endl;
+			return -1;
+		}else{
+			vector<taskClass>::iterator it;
+			int n= getByIdNum(src);
+			int p= list[n].getPrereq();
 		
-		for(int i = dst; i<n ; ++i){
-			if(list[n].getId()==p){
+			for(int i = dst; i<n ; ++i){
+				if(list[n].getId()==p){
+					cout<<"*****prereq violation in move*****"<<endl;
+					return p;
+				}
+			}
+			  
+			if(p==-1){
+				it = list.begin()+dst-1;
+				taskClass t = list[n];
+				removeById(src);
+				list.insert(it,t);
+			}else{
 				cout<<"*****prereq violation in move*****"<<endl;
 				return p;
 			}
+			return -1;
 		}
-		  
-		if(p==-1){
-			it = list.begin()+dst-1;
-			taskClass t = list[n];
-			removeById(src);
-			list.insert(it,t);
-		}else{
-			cout<<"*****prereq violation in move*****"<<endl;
-			return p;
-		}
-		return -1;
 	
 	}
+
+
+	
+
 
 
 };

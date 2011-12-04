@@ -31,3 +31,7 @@ SDD/5167255.pdf
 .*
 #all hidden files
 !.gitignore
+
+#the executable
+TODO
+
