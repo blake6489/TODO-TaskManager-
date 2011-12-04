@@ -42,6 +42,7 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 	commands.push_back("stop");
 	commands.push_back("show");
 	commands.push_back("export");
+	commands.push_back("help");
 		
 	string firstArg=arg[0];
 	std::transform(firstArg.begin(), firstArg.end(), firstArg.begin(), (int(*)(int)) tolower);
@@ -79,6 +80,10 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 		case (6)://"export"
 
 			break;
+		case (7)://"help"
+			for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;
+			break;
+			
 			
 		default:
 			cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;
@@ -87,6 +92,8 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 
 void commandNew(activeListClass* list,vector<string> arg){
 	time_t now = time (NULL);
+	
+	
 	
 list->push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 
