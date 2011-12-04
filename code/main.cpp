@@ -40,11 +40,20 @@ void inactive(int i,activeListClass* act, inactiveListClass* in )
 int main (int argc, char* argv[])
 {
 
-	vector<string> inputs;
-	for(int i=1; i<argc; ++i){	inputs.push_back(string(argv[i]));	}
+	activeListClass activeList;
+	inactiveListClass inactiveList;
+	
+	time_t now = time (NULL);
+///////////////
+	vector<string> arg;
+	for(int i=1; i<argc; ++i){	arg.push_back(string(argv[i]));	}
 
-	parser(inputs);
+	parser(&inactiveList,&activeList,arg);
 
+	vector<taskClass> o=activeList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
 
 
 

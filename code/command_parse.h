@@ -27,21 +27,68 @@ using namespace std;
 #ifndef PARSER_H_INCLUDE
 #define PARSER_H_INCLUDE
 
-void parser(vector<string> arg)
+void commandNew(activeListClass* list,vector<string> arg);
+
+void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector<string> arg)
 {
 
-	for(int i=0; i<arg.size();++i){
-		cout<<arg[i]<<endl;
-	}
+	time_t now = time (NULL);
 	
+	vector<string> commands;
+	commands.push_back("new");
+	commands.push_back("working");
+	commands.push_back("inactivate");
+	commands.push_back("completed");
+	commands.push_back("stop");
+	commands.push_back("show");
+	commands.push_back("export");
+		
 	string firstArg=arg[0];
 	std::transform(firstArg.begin(), firstArg.end(), firstArg.begin(), (int(*)(int)) tolower);
 	cout<<firstArg<<endl;
 	
+	int argNum=-1;
+	for(int i = 0; i<commands.size(); ++i){	if(firstArg==commands[i]){argNum=i;}}
+	if(argNum==-1){	cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;}
+	
+	vector<taskClass> o;
+	
+	switch (argNum)
+	{
+		case (0)://"new"
+			commandNew(activeList,arg);
+			break;
+		case (1)://"working"
 
+			break;
+		case (2)://"inactivate"
 
+			break;
+		case (3)://"completed"
 
+			break;
+		case (4)://"stop"
 
+			break;
+		case (5)://"show"
+			o=activeList->show();
+			for(int i=0; i<o.size();++i){
+				cout<<o[i]<<endl;
+			}
+			break;
+		case (6)://"export"
+
+			break;
+			
+		default:
+			cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;
+	}
+}
+
+void commandNew(activeListClass* list,vector<string> arg){
+	time_t now = time (NULL);
+	
+list->push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 
 }
 
