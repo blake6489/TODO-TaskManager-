@@ -40,7 +40,9 @@ public:
 	
 public:
 	taskClass top() { return list[0]; }
-
+	
+	int getWorkingOn() { return workingOn; }
+	
 	vector<taskClass> show(int n=-1) 
 	{ 
 		timerAdvance();

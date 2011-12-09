@@ -41,7 +41,6 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 	commands.push_back("completed");
 	commands.push_back("stop");
 	commands.push_back("show");
-	commands.push_back("export");
 	commands.push_back("help");
 		
 	string firstArg=arg[0];
@@ -72,15 +71,14 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 
 			break;
 		case (5)://"show"
-			o=activeList->show();
+			//if length is given, print that many items
+			if(arg.size()>1){o=activeList->show(atoi(arg[1].c_str()));
+			}else{o=activeList->show();}
 			for(int i=0; i<o.size();++i){
 				cout<<o[i]<<endl;
 			}
 			break;
-		case (6)://"export"
-
-			break;
-		case (7)://"help"
+		case (6)://"help"
 			for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
 			break;
 			
@@ -89,6 +87,7 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 			cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;
 	}
 }
+
 
 void commandNew(activeListClass* list,vector<string> arg){
 	time_t now = time (NULL);

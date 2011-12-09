@@ -22,20 +22,22 @@ using namespace std;
 #include "task.h"
 #include "list.h"
 #include "inactivelist.h"
-#include "command_parse.h"
+//#include "command_parse.h"
 
-
-void completed(int i,activeListClass* act, inactiveListClass* in )
+void commandNew(activeListClass* list,vector<string> arg);
+void completed(activeListClass* act, inactiveListClass* in )
 {
-	taskClass* t = act->getById(i);
+	taskClass* t = act->getById(act->getWorkingOn());
 	t->setCompleted(true);
-	in->push(act->markInactive(i));
+	in->push(act->markInactive(act->getWorkingOn()));
 }
 
 void inactive(int i,activeListClass* act, inactiveListClass* in )
 {
 	in->push(act->markInactive(i));
 }
+/////////////////////////////////
+/////////////////////////////////
 /////////////////////////////////
 int main (int argc, char* argv[])
 {
@@ -55,22 +57,93 @@ time_t now = time (NULL);
 	inactiveList.readFromFile(fileReadMmap(inactFile));
 
 	
-	vector<taskClass> o=activeList.show();
-	for(int i=0; i<o.size();++i){
+	//vector<taskClass> o=activeList.show();
+	//for(int i=0; i<o.size();++i){
 		//cout<<o[i]<<endl;
-	}
+	//}
 ///////////////
 	vector<string> arg;
 	if(argc>1){
 		for(int i=1; i<argc; ++i){	arg.push_back(string(argv[i]));	}
-		parser(&inactiveList,&activeList,arg);
-	}
 
-	o=activeList.show();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-	/*for(int i=0; i<10000; ++i){
+		vector<string> commands;
+		commands.push_back("new");
+		commands.push_back("start");
+		commands.push_back("inactivate");
+		commands.push_back("completed");
+		commands.push_back("stop");
+		commands.push_back("show");
+		commands.push_back("help");
+	
+		string firstArg=arg[0];
+		std::transform(firstArg.begin(), firstArg.end(), firstArg.begin(), (int(*)(int)) tolower);
+		cout<<firstArg<<endl;
+
+		int argNum=-1;
+		for(int i = 0; i<commands.size(); ++i){	if(firstArg==commands[i]){argNum=i;}}
+		if(argNum==-1){	cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;}
+
+		vector<taskClass> o;
+
+		switch (argNum)
+		{
+			case (0)://"new"
+				commandNew(&activeList,arg);
+				break;
+			case (1)://"start"
+				if(activeList.getWorkingOn()!=-1){
+					cout<<"**working already**"<<endl;
+				}else{
+					activeList.workingOnTop();
+					cout<<"Working"<<endl;
+				}
+				break;
+			case (2)://"inactivate"
+				if(activeList.getWorkingOn()!=-1){
+					cout<<"**working already**"<<endl;
+				}else{
+					if(arg.size()>1){inactive(atoi(arg[1].c_str()),&activeList,&inactiveList);
+					}else{cout<<"**Which item to mark inactive?**"<<endl;}
+				}
+				break;
+			case (3)://"completed"
+				if(activeList.getWorkingOn()==-1){
+					cout<<"**not working on anything**"<<endl;
+				}else{
+					completed(&activeList,&inactiveList);
+				}
+				break;
+			case (4)://"stop"
+				if(activeList.getWorkingOn()==-1){
+					cout<<"**not working on anything**"<<endl;
+				}else{
+					activeList.stopWorkingOnTop();
+				}
+				break;
+			case (5)://"show"
+				//if length is given, print that many items
+				if(arg.size()>1){o=activeList.show(atoi(arg[1].c_str()));
+				}else{o=activeList.show();}
+				for(int i=0; i<o.size();++i){
+					cout<<o[i]<<endl;
+				}
+				break;
+			case (6)://"help"
+				for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
+				break;
+			default:
+				cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;
+		}
+	
+	
+	
+	}//end if(args exist)
+	
+	//o=activeList.show(25);
+	//for(int i=0; i<o.size();++i){
+		//cout<<o[i]<<endl;
+//	}
+	/*for(int i=0; i<3000; ++i){
 		activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
 	}*/
 	/*activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
@@ -180,13 +253,42 @@ cout <<"*stop working - correct order*"<<endl;
 	myfile.close();
 	
 
-	o=inactiveList.show();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
+	//o=inactiveList.show();
+	//for(int i=0; i<o.size();++i){
+		//cout<<o[i]<<endl;
+//	}
 	myfile.open ("inactiveList");
 	myfile << inactiveList.writeToFile();
 	myfile.close();
 
 	return 0;
 }
+
+
+void commandNew(activeListClass* list,vector<string> arg){
+	time_t now = time (NULL);
+	
+	vector<string> dataIn=arg;
+for(int i=0; i<arg.size();++i){
+		cout<<arg[i]<<endl;
+	}
+
+if(dataIn.size()<7){dataIn[7]=-1;}
+if(dataIn.size()<8){dataIn[8]=-1;}
+
+	list->push(
+		atoi(dataIn[1].c_str()),//apt
+		
+		dataIn[2], //name
+		dataIn[3], //desc
+		dataIn[4], //proj
+		
+		(time_t) atoi(dataIn[5].c_str()), // due
+		(time_t) atoi(dataIn[6].c_str()), //time est
+		
+		atoi(dataIn[7].c_str()), //priority
+		atoi(dataIn[8].c_str()) //prereq
+		);
+
+}
+
