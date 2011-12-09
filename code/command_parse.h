@@ -93,9 +93,13 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 void commandNew(activeListClass* list,vector<string> arg){
 	time_t now = time (NULL);
 	
-	
-	
-list->push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
+	list->push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
+	list->push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
+	list->push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 2 , 1);
+	list->push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 3 );
+	list->push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 4);
+	list->push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 4);
+	list->push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
 
 }
 

@@ -44,24 +44,6 @@ int main (int argc, char* argv[])
 	
 	//string aaa=fileReadMmap(actFile);
 	//string iii=fileReadMmap(inactFile);
-	
-/*	 
-	activeListClass activeList;
-	inactiveListClass inactiveList;
-	
-	time_t now = time (NULL);
-///////////////
-	vector<string> arg;
-	for(int i=1; i<argc; ++i){	arg.push_back(string(argv[i]));	}
-
-	parser(&inactiveList,&activeList,arg);
-
-	vector<taskClass> o=activeList.show();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-*/
-
 
 time_t now = time (NULL);
 
@@ -70,15 +52,32 @@ time_t now = time (NULL);
 	
 	string inComingData=fileReadMmap(actFile);
 	activeList.readFromFile(inComingData);
+	cout<<"wsx"<<endl;
 	
-	activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
+	vector<taskClass> o=activeList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+///////////////
+	vector<string> arg;
+	if(argc>1){
+		for(int i=1; i<argc; ++i){	arg.push_back(string(argv[i]));	}
+		parser(&inactiveList,&activeList,arg);
+	}
+
+	o=activeList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	
+	/*activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 	activeList.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
 	activeList.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 2 , 1);
 	activeList.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 3 );
 	activeList.push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 4);
 	activeList.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 4);
 	activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
-	
+*/
 	/*
 cout <<"*4 tasks and 3 apointments added*"<<endl;
 	
@@ -110,10 +109,11 @@ cout <<"*stop working - timeradvance - correct order*"<<endl;
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
+	*/
 	
-cout <<"*#5 completed*"<<endl;
-	completed(5,&activeList,&inactiveList);
-
+//cout <<"*#5 completed*"<<endl;
+	completed(2,&activeList,&inactiveList);
+/*
 cout <<"*show inactive list*"<<endl;
 	o=inactiveList.show();
 	for(int i=0; i<o.size();++i){

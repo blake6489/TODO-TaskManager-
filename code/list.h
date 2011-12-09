@@ -137,7 +137,7 @@ public:
 				return &(list[n]);
 			}
 		}
-		cout<<"*****getbyid problem, not here********"<<endl;
+		cout<<"*****1getbyid problem, not here********"<<endl;
 		return &(taskClass());
 	}
 	
@@ -161,7 +161,7 @@ public:
 				return (list[n]);
 			}
 		}
-		cout<<"*****getbyid problem, not here********"<<endl;
+		cout<<"*****2getbyid problem, not here********"<<endl;
 		return (taskClass());
 	}
 	
@@ -173,7 +173,7 @@ public:
 				return n;
 			}
 		}
-		cout<<"*****getbyid problem, not here********"<<endl;
+		cout<<"*****3getbyid problem, not here********"<<endl;
 		return -1;
 	}
 	
@@ -294,6 +294,7 @@ cout<<"*****inactivated*****"<<endl;
 		out += convertInt(idCount) + "\n";
 		out += convertInt(aptDelay) + "\n";
 		out += convertInt(workingOn) + "\n";
+//cout<<"workingon"<<convertInt(workingOn)<<endl;
 		out += convertInt(startTime.getDuration()) + "\n";
 		
 		//re write priority to make reinsertion correct??
@@ -317,28 +318,36 @@ cout<<"*****inactivated*****"<<endl;
 		
 		line=in.find("\n");
 		idCount=atoi(in.substr(0,line).c_str());
-		last=line;
-		
+		last=line+1;
+
 		line=in.find("\n",last);
-		aptDelay=atoi(in.substr(last+1,line).c_str());
-		last=line;
-		
+		aptDelay=atoi(in.substr(last,line).c_str());
+		last=line+1;
+
 		line=in.find("\n",last);
-		workingOn=atoi(in.substr(0,line).c_str());
-		last=line;
-		
+		workingOn=atoi(in.substr(last,line).c_str());
+		last=line+1;
+
 		line=in.find("\n",last);
-		startTime=atoi(in.substr(last+1,line).c_str());
-		last=line;
+		startTime=atoi(in.substr(last,line).c_str());
+		last=line+1;
 		
-		while(!eof){
-			line=in.find("\n",last);
-			list.at(i).readIn(in.substr(last+1,line));
-			last=line;
-		}
-		
-		
-		
+		int i=0;
+		while(i<=idCount){
+			line=in.find("\n",last+1);
+		cout<<"line"<<line<<"-"<<last<<"-"<<in.length()<<endl;
+		//line!=string::npos || 
+			if (line>in.length()){
+				cout<<"break:"<<line<<endl;break;
+			}else{
+				taskClass tmp;
+				tmp.readIn(in.substr(last+1,line));
+				cout<<"__"<<in.substr(last+1,line)<<endl;
+				list.push_back(tmp);
+				last=line;
+				++i;
+			}
+		}		
 	}
 	
 

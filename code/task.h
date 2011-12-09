@@ -79,14 +79,45 @@ public:
 		
 	}
 	
+	taskClass(
+		bool comp,
+		bool inact,
+		bool a,
+		int i,
+		string n,
+		string des,
+		string pro,
+		date due,
+		date time,
+		date elapse,
+		int pri,
+		int pre)
+	{
+		completed=comp;
+		inactive=inact;
+				
+		apt=a;
+		id=i;
+		
+		name=n;
+		description=des;
+		project=pro;
+		dueDate=due;
+		timeEst=time;
+		timeElapse=elapse;
+		priority=pri;    
+		prereq=pre;
+		
+	}
+	
 	
 	
 public:
-	bool getInactive() { return inactive; }
-	void setInactive(bool i) { inactive = i; }
-
 	bool getCompleted() { return completed; }
 	void setCompleted(bool i) { completed = i; }
+	
+	bool getInactive() { return inactive; }
+	void setInactive(bool i) { inactive = i; }
 
 	bool getApt() { return apt; }
 	void setApt(bool i) { apt = i; }
@@ -123,7 +154,7 @@ public:
 	{
 		string oo="";
 		
-		oo+=convertInt(getInactive()) + "\t";
+		oo+=" " + convertInt(getInactive()) + "\t";
 		oo+=convertInt(getApt()) + "\t";
 		oo+=convertInt(getId()) + "\t";
 		oo+=getName() + "\t";
@@ -133,14 +164,40 @@ public:
 		oo+=convertInt(getTimeEst().getDuration()) + "\t";
 		oo+=convertInt(getTimeElapse().getDuration()) + "\t";
 		oo+=convertInt(getPriority()) + "\t";    
-		oo+=convertInt(getPrereq()) + "\t";
+		oo+=convertInt(getPrereq());
 		
 		return oo;
 	}
 	
-	void writeOut(string in)
+	void readIn(string in)
 	{
+
+		vector<string> dataIn;
+		char * pch;
+		char * tmpstr=strdup(in.c_str());
+		pch = strtok (tmpstr,"\t");
+		while (pch != NULL)
+		{
+			dataIn.push_back(string(pch));
+			pch = strtok (NULL, "\t");
+		}
+
+		setCompleted(0);
+		setInactive(atoi(dataIn[0].c_str()));
+
+		setApt(atoi(dataIn[1].c_str()));
+		setId(atoi(dataIn[2].c_str()));
 		
+		setName(dataIn[3]);
+		setDescription(dataIn[4]);
+		setProject(dataIn[5]);
+		
+		setDueDate((time_t) atoi(dataIn[6].c_str()));
+		setTimeEst((time_t) atoi(dataIn[7].c_str()));
+		setTimeElapse((time_t) atoi(dataIn[8].c_str()));
+		
+		setPriority(atoi(dataIn[9].c_str()));
+		setPrereq(atoi(dataIn[10].c_str()));
 		
 		
 	}
