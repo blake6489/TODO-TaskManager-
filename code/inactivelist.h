@@ -67,6 +67,7 @@ public:
 		string file="inactivelist";
 		
 		
+		
 	}
 	
 	string readFromFile()

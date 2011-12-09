@@ -8,6 +8,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <sstream>
 using namespace std;
 
 #include <sys/mman.h>	// for mmap, munmap
@@ -148,6 +149,13 @@ char* itoa(int val, int base=10){
 	
 }
 
+////
+string convertInt(int number)
+{
+   stringstream ss (stringstream::in | stringstream::out);//create a stringstream
+   ss << number;//add number to the stream
+   return ss.str();//return a string with the contents of the stream
+}
 
 void stringToVector(vector<string> v, int p, string d){
 	

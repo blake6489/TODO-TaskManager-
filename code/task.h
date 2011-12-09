@@ -119,13 +119,24 @@ public:
 	int getPrereq() { return prereq; }
 	void setPrereq(int i) { prereq = i; }
 	
-	/*ostream tableP()
+	string writeOut()
 	{
-		ostream oo;
-		oo<< getInactive()<< getApt()<< getId()<< getName()<< getDescription()<< getProject()<< getDueDate()<< getTimeEst()<< getTimeElapse()<< getPriority()<< getPrereq();
+		string oo="";
+		
+		oo+=convertInt(getInactive()) + "\t";
+		oo+=convertInt(getApt()) + "\t";
+		oo+=convertInt(getId()) + "\t";
+		oo+=getName() + "\t";
+		oo+=getDescription() + "\t";
+		oo+=getProject() + "\t";
+		oo+=convertInt(getDueDate().getDuration())+ "\t";
+		oo+=convertInt(getTimeEst().getDuration()) + "\t";
+		oo+=convertInt(getTimeElapse().getDuration()) + "\t";
+		oo+=convertInt(getPriority()) + "\t";    
+		oo+=convertInt(getPrereq()) + "\t";
 		
 		return oo;
-	}*/
+	}
 
  
 	//bool dateCompa( taskClass &a, taskClass &b) {return a.getDueDate() < b.getDueDate();}

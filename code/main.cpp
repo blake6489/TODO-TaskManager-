@@ -39,7 +39,13 @@ void inactive(int i,activeListClass* act, inactiveListClass* in )
 
 int main (int argc, char* argv[])
 {
-
+	string actFile="activelist";
+	string inactFile="inactivelist";
+	
+	//string aaa=fileReadMmap(actFile);
+	//string iii=fileReadMmap(inactFile);
+	
+	 
 	activeListClass activeList;
 	inactiveListClass inactiveList;
 	
@@ -162,6 +168,10 @@ cout <<"*stop working - correct order*"<<endl;
 	string u=fileReadMmap("README");
 */
 
+	ofstream myfile;
+	myfile.open ("activeList");
+	myfile << activeList.writeToFile();
+	myfile.close();
 
 	return 0;
 }

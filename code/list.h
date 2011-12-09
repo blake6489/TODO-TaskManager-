@@ -289,16 +289,27 @@ cout<<"*****inactivated*****"<<endl;
 
 	string writeToFile()
 	{
-		string file="activelist";
+		string out="";
+		//re write priority to make reinsertion correct
 		
 		
+		//write header line for table of data??
+		
+		
+		//get string of task
+		//cat string of tasks together
+		for(int i=0; i<list.size();++i){
+			out += list[i].writeOut() + "\n";
+		}
+		//cat string of tasks together
+		return out;
 	}
 	
 	string readFromFile()
 	{
 		string file="activelist";
 		
-		
+		return "0";
 		
 		
 	}
