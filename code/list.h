@@ -290,26 +290,53 @@ cout<<"*****inactivated*****"<<endl;
 	string writeToFile()
 	{
 		string out="";
-		//re write priority to make reinsertion correct
 		
+		out += convertInt(idCount) + "\n";
+		out += convertInt(aptDelay) + "\n";
+		out += convertInt(workingOn) + "\n";
+		out += convertInt(startTime.getDuration()) + "\n";
 		
+		//re write priority to make reinsertion correct??
 		//write header line for table of data??
+		
 		
 		
 		//get string of task
 		//cat string of tasks together
-		for(int i=0; i<list.size();++i){
+		for(int i=0; i<list.size(); ++i){
 			out += list[i].writeOut() + "\n";
 		}
 		//cat string of tasks together
 		return out;
 	}
 	
-	string readFromFile()
+	void readFromFile(string in)
 	{
-		string file="activelist";
+		size_t line;
+		size_t last;
 		
-		return "0";
+		line=in.find("\n");
+		idCount=atoi(in.substr(0,line).c_str());
+		last=line;
+		
+		line=in.find("\n",last);
+		aptDelay=atoi(in.substr(last+1,line).c_str());
+		last=line;
+		
+		line=in.find("\n",last);
+		workingOn=atoi(in.substr(0,line).c_str());
+		last=line;
+		
+		line=in.find("\n",last);
+		startTime=atoi(in.substr(last+1,line).c_str());
+		last=line;
+		
+		while(!eof){
+			line=in.find("\n",last);
+			list.at(i).readIn(in.substr(last+1,line));
+			last=line;
+		}
+		
 		
 		
 	}

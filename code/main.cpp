@@ -36,16 +36,16 @@ void inactive(int i,activeListClass* act, inactiveListClass* in )
 {
 	in->push(act->markInactive(i));
 }
-
+/////////////////////////////////
 int main (int argc, char* argv[])
 {
-	string actFile="activelist";
-	string inactFile="inactivelist";
+	string actFile="activeList";
+	string inactFile="inactiveList";
 	
 	//string aaa=fileReadMmap(actFile);
 	//string iii=fileReadMmap(inactFile);
 	
-	 
+/*	 
 	activeListClass activeList;
 	inactiveListClass inactiveList;
 	
@@ -60,14 +60,16 @@ int main (int argc, char* argv[])
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
+*/
 
 
-
-/*
 time_t now = time (NULL);
 
 	activeListClass activeList;
 	inactiveListClass inactiveList;
+	
+	string inComingData=fileReadMmap(actFile);
+	activeList.readFromFile(inComingData);
 	
 	activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 	activeList.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
@@ -77,6 +79,7 @@ time_t now = time (NULL);
 	activeList.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 4);
 	activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
 	
+	/*
 cout <<"*4 tasks and 3 apointments added*"<<endl;
 	
 	vector<taskClass> o=activeList.show();
@@ -165,7 +168,7 @@ cout <<"*stop working - correct order*"<<endl;
 	
 	
 	
-	string u=fileReadMmap("README");
+	//string u=fileReadMmap("README");
 */
 
 	ofstream myfile;

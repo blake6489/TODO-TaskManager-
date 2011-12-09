@@ -137,6 +137,13 @@ public:
 		
 		return oo;
 	}
+	
+	void writeOut(string in)
+	{
+		
+		
+		
+	}
 
  
 	//bool dateCompa( taskClass &a, taskClass &b) {return a.getDueDate() < b.getDueDate();}

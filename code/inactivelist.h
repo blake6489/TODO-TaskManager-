@@ -64,7 +64,7 @@ public:
 	
 	string writeToFile()
 	{
-		string file="inactivelist";
+
 		
 		
 		
@@ -72,8 +72,7 @@ public:
 	
 	string readFromFile()
 	{
-		string file="inactivelist";
-		
+	
 		
 		
 		
