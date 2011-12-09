@@ -287,7 +287,21 @@ cout<<"*****inactivated*****"<<endl;
 	
 	}
 
-
+	string writeToFile()
+	{
+		string file="activelist";
+		
+		
+	}
+	
+	string readFromFile()
+	{
+		string file="activelist";
+		
+		
+		
+		
+	}
 	
 
 

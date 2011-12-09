@@ -81,7 +81,7 @@ void parser(inactiveListClass* inactiveList, activeListClass* activeList, vector
 
 			break;
 		case (7)://"help"
-			for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;
+			for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
 			break;
 			
 			

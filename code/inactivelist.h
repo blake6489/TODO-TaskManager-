@@ -61,6 +61,22 @@ public:
 		return &(taskClass());
 		
 	}
+	
+	string writeToFile()
+	{
+		string file="inactivelist";
+		
+		
+	}
+	
+	string readFromFile()
+	{
+		string file="inactivelist";
+		
+		
+		
+		
+	}
 
 };
 
