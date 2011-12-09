@@ -50,9 +50,10 @@ time_t now = time (NULL);
 	activeListClass activeList;
 	inactiveListClass inactiveList;
 	
-	string inComingData=fileReadMmap(actFile);
-	activeList.readFromFile(inComingData);
-	cout<<"wsx"<<endl;
+
+	activeList.readFromFile(fileReadMmap(actFile));
+	inactiveList.readFromFile(fileReadMmap(inactFile));
+
 	
 	vector<taskClass> o=activeList.show();
 	for(int i=0; i<o.size();++i){
@@ -112,7 +113,7 @@ cout <<"*stop working - timeradvance - correct order*"<<endl;
 	*/
 	
 //cout <<"*#5 completed*"<<endl;
-	completed(2,&activeList,&inactiveList);
+	//completed(14,&activeList,&inactiveList);
 /*
 cout <<"*show inactive list*"<<endl;
 	o=inactiveList.show();
@@ -174,6 +175,15 @@ cout <<"*stop working - correct order*"<<endl;
 	ofstream myfile;
 	myfile.open ("activeList");
 	myfile << activeList.writeToFile();
+	myfile.close();
+	
+
+	o=inactiveList.show();
+	for(int i=0; i<o.size();++i){
+		cout<<o[i]<<endl;
+	}
+	myfile.open ("inactiveList");
+	myfile << inactiveList.writeToFile();
 	myfile.close();
 
 	return 0;

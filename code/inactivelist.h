@@ -64,16 +64,42 @@ public:
 	
 	string writeToFile()
 	{
-
+		string out="";
+		
+		//write header line for table of data??
+		//get string of task
+		//cat string of tasks together
+		for(int i=0; i<list.size(); ++i){
+			out += list[i].writeOut() + "\n";
+		}
+		//cat string of tasks together
+		return out;
 		
 		
 		
 	}
 	
-	string readFromFile()
+	void readFromFile(string in)
 	{
+		size_t line;
+		size_t last=0;
 	
-		
+		int i=0;
+		while(i<=1000000){
+			line=in.find("\n",last+1);
+		cout<<"line"<<line<<"-"<<last<<"-"<<in.length()<<endl;
+		//line!=string::npos || 
+			if (line>in.length()){
+				cout<<"break:"<<line<<endl;break;
+			}else{
+				taskClass tmp;
+				tmp.readIn(in.substr(last+1,line));
+				cout<<"__"<<in.substr(last+1,line)<<endl;
+				list.push_back(tmp);
+				last=line;
+				++i;
+			}
+		}
 		
 		
 	}

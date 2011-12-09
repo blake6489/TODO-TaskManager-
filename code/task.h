@@ -79,38 +79,6 @@ public:
 		
 	}
 	
-	taskClass(
-		bool comp,
-		bool inact,
-		bool a,
-		int i,
-		string n,
-		string des,
-		string pro,
-		date due,
-		date time,
-		date elapse,
-		int pri,
-		int pre)
-	{
-		completed=comp;
-		inactive=inact;
-				
-		apt=a;
-		id=i;
-		
-		name=n;
-		description=des;
-		project=pro;
-		dueDate=due;
-		timeEst=time;
-		timeElapse=elapse;
-		priority=pri;    
-		prereq=pre;
-		
-	}
-	
-	
 	
 public:
 	bool getCompleted() { return completed; }
