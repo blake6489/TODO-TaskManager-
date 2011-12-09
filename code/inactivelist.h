@@ -87,14 +87,12 @@ public:
 		int i=0;
 		while(i<=1000000){
 			line=in.find("\n",last+1);
-		cout<<"line"<<line<<"-"<<last<<"-"<<in.length()<<endl;
 		//line!=string::npos || 
 			if (line>in.length()){
 				cout<<"break:"<<line<<endl;break;
 			}else{
 				taskClass tmp;
 				tmp.readIn(in.substr(last+1,line));
-				cout<<"__"<<in.substr(last+1,line)<<endl;
 				list.push_back(tmp);
 				last=line;
 				++i;

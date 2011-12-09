@@ -169,6 +169,39 @@ public:
 		
 		
 	}
+	
+	void readInCommand(string in)
+	{
+
+		vector<string> dataIn;
+		char * pch;
+		char * tmpstr=strdup(in.c_str());
+		pch = strtok (tmpstr,"\t");
+		while (pch != NULL)
+		{
+			dataIn.push_back(string(pch));
+			pch = strtok (NULL, "\t");
+		}
+
+		setCompleted(0);
+		setInactive(atoi(dataIn[0].c_str()));
+
+		setApt(atoi(dataIn[1].c_str()));
+		setId(atoi(dataIn[2].c_str()));
+		
+		setName(dataIn[3]);
+		setDescription(dataIn[4]);
+		setProject(dataIn[5]);
+		
+		setDueDate((time_t) atoi(dataIn[6].c_str()));
+		setTimeEst((time_t) atoi(dataIn[7].c_str()));
+		setTimeElapse((time_t) atoi(dataIn[8].c_str()));
+		
+		setPriority(atoi(dataIn[9].c_str()));
+		setPrereq(atoi(dataIn[10].c_str()));
+		
+		
+	}
 
  
 	//bool dateCompa( taskClass &a, taskClass &b) {return a.getDueDate() < b.getDueDate();}

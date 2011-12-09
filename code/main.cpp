@@ -57,7 +57,7 @@ time_t now = time (NULL);
 	
 	vector<taskClass> o=activeList.show();
 	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
+		//cout<<o[i]<<endl;
 	}
 ///////////////
 	vector<string> arg;
@@ -70,7 +70,9 @@ time_t now = time (NULL);
 	for(int i=0; i<o.size();++i){
 		cout<<o[i]<<endl;
 	}
-	
+	/*for(int i=0; i<10000; ++i){
+		activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
+	}*/
 	/*activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
 	activeList.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
 	activeList.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 2 , 1);
