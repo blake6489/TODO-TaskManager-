@@ -24,7 +24,7 @@ using namespace std;
 #include "inactivelist.h"
 //#include "command_parse.h"
 
-void commandNew(activeListClass* list,vector<string> arg);
+void commandNew(activeListClass* list,vector<string> nArg);
 void completed(activeListClass* act, inactiveListClass* in )
 {
 	taskClass* t = act->getById(act->getWorkingOn());
@@ -53,8 +53,8 @@ time_t now = time (NULL);
 	inactiveListClass inactiveList;
 	
 
-	activeList.readFromFile(fileReadMmap(actFile));
-	inactiveList.readFromFile(fileReadMmap(inactFile));
+	activeList.readFromFile(&fileReadMmap(actFile));
+	inactiveList.readFromFile(&fileReadMmap(inactFile));
 
 	
 	//vector<taskClass> o=activeList.show();
@@ -73,6 +73,7 @@ time_t now = time (NULL);
 		commands.push_back("completed");
 		commands.push_back("stop");
 		commands.push_back("show");
+		commands.push_back("move");
 		commands.push_back("help");
 	
 		string firstArg=arg[0];
@@ -88,7 +89,11 @@ time_t now = time (NULL);
 		switch (argNum)
 		{
 			case (0)://"new"
-				commandNew(&activeList,arg);
+				if(activeList.getWorkingOn()!=-1){
+					cout<<"**Working! Must stop to make new**"<<endl;
+				}else{
+					commandNew(&activeList,arg);
+				}
 				break;
 			case (1)://"start"
 				if(activeList.getWorkingOn()!=-1){
@@ -122,13 +127,21 @@ time_t now = time (NULL);
 				break;
 			case (5)://"show"
 				//if length is given, print that many items
-				if(arg.size()>1){o=activeList.show(atoi(arg[1].c_str()));
-				}else{o=activeList.show();}
+				if(arg.size()>1){o=activeList.showInCorrectOrder(atoi(arg[1].c_str()));
+				}else{o=activeList.showInCorrectOrder();}
 				for(int i=0; i<o.size();++i){
 					cout<<o[i]<<endl;
 				}
 				break;
-			case (6)://"help"
+			case (6)://"move"
+				if(activeList.getWorkingOn()!=-1){
+					cout<<"**Working! Must stop to move**"<<endl;
+				}else{
+					if(arg.size()>2){activeList.move(atoi(arg[1].c_str()),atoi(arg[2].c_str()));
+					}else{cout<<"**Move what to where? 2 arguments required**"<<endl;}
+				}
+				break;
+			case (7)://"help"
 				for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
 				break;
 			default:
@@ -143,7 +156,7 @@ time_t now = time (NULL);
 	//for(int i=0; i<o.size();++i){
 		//cout<<o[i]<<endl;
 //	}
-	/*for(int i=0; i<3000; ++i){
+	/*for(int i=0; i<1000; ++i){
 		activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
 	}*/
 	/*activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
@@ -265,30 +278,26 @@ cout <<"*stop working - correct order*"<<endl;
 }
 
 
-void commandNew(activeListClass* list,vector<string> arg){
+void commandNew(activeListClass* list,vector<string> nArg){
 	time_t now = time (NULL);
 	
-	vector<string> dataIn=arg;
-for(int i=0; i<arg.size();++i){
-		cout<<arg[i]<<endl;
-	}
-
-if(dataIn.size()<7){dataIn[7]=-1;}
-if(dataIn.size()<8){dataIn[8]=-1;}
-
+	//set last two optional arguments
+	if(nArg.size()<8){nArg.push_back(string("-1")); nArg.push_back(string("-1"));}
+	if(nArg.size()<9){nArg.push_back(string("-1"));}
+	
+	//declare new item on list
 	list->push(
-		atoi(dataIn[1].c_str()),//apt
+		atoi(nArg[1].c_str()),//apt
 		
-		dataIn[2], //name
-		dataIn[3], //desc
-		dataIn[4], //proj
+		nArg[2], //name
+		nArg[3], //desc
+		nArg[4], //proj
 		
-		(time_t) atoi(dataIn[5].c_str()), // due
-		(time_t) atoi(dataIn[6].c_str()), //time est
+		(time_t) atoi(nArg[5].c_str()), // due
+		(time_t) atoi(nArg[6].c_str()), //time est
 		
-		atoi(dataIn[7].c_str()), //priority
-		atoi(dataIn[8].c_str()) //prereq
+		atoi(nArg[7].c_str()), //priority
+		atoi(nArg[8].c_str()) //prereq
 		);
-
 }
 

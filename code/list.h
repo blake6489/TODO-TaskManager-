@@ -179,11 +179,11 @@ public:
 		return -1;
 	}
 	
-	vector<taskClass> showInCorrectOrder()
+	vector<taskClass> showInCorrectOrder(int n=-1)
 	{
 		timerAdvance();
 		//assumes tasks in correct order already
-		vector<taskClass> orderedList=showTask();
+		vector<taskClass> orderedList=showTask(n);
 		vector<taskClass>::iterator it;
 
 		vector<taskClass> apts=showApt();
@@ -209,6 +209,11 @@ public:
 				orderedList.insert(it,apts[i]);
 			}
 		}
+		
+		if(orderedList.size()>n){
+			orderedList.resize(n);
+		}
+		
 		return orderedList;
 	}
 	
@@ -313,42 +318,74 @@ cout<<"*****inactivated*****"<<endl;
 		return out;
 	}
 	
-	void readFromFile(string in)
+	void readFromFile(string * in)
 	{
 		size_t line;
 		size_t last;
 		
-		line=in.find("\n");
-		idCount=atoi(in.substr(0,line).c_str());
+		line=in->find("\n");
+		idCount=atoi(in->substr(0,line).c_str());
 		last=line+1;
 
-		line=in.find("\n",last);
-		aptDelay=atoi(in.substr(last,line).c_str());
+		line=in->find("\n",last);
+		aptDelay=atoi(in->substr(last,line).c_str());
 		last=line+1;
 
-		line=in.find("\n",last);
-		workingOn=atoi(in.substr(last,line).c_str());
+		line=in->find("\n",last);
+		workingOn=atoi(in->substr(last,line).c_str());
 		last=line+1;
 
-		line=in.find("\n",last);
-		startTime=atoi(in.substr(last,line).c_str());
+		line=in->find("\n",last);
+		startTime=atoi(in->substr(last,line).c_str());
 		last=line+1;
+		
+		
+		
 		
 		int i=0;
 		while(i<=idCount){
-			line=in.find("\n",last+1);
-		//line!=string::npos || 
-			if (line>in.length()){
+			line=in->find("\n",last+1);
+
+			if (line>in->length()){
 				cout<<"break:"<<line<<endl;break;
 			}else{
 				taskClass tmp;
-				tmp.readIn(in.substr(last+1,line));
+				tmp.readIn(in->substr(last+1,line));
 				list.push_back(tmp);
 				last=line;
 				++i;
 			}
 		}		
 	}
+	
+	/*void readFromFile(string * in)
+	{
+		char * pch;
+		char * tmpstr=strdup((*in).c_str());
+		cout<<"****act*****\n"<<tmpstr<<"****end-act*****"<<endl;
+		
+		pch = strtok (tmpstr,"\n");
+		idCount=atoi(pch);
+		
+		pch = strtok (NULL, "\n");
+		aptDelay=atoi(pch);
+
+		pch = strtok (NULL, "\n");
+		workingOn=atoi(pch);
+
+		pch = strtok (NULL, "\n");
+		startTime=atoi(pch);
+
+		pch = strtok (NULL, "\n");		
+		taskClass tmp;
+		while (pch != NULL)
+		{
+			tmp.readIn(pch);
+			list.push_back(tmp);
+			pch = strtok (NULL, "\n");
+		}
+			
+	}*/
 	
 
 

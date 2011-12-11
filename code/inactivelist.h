@@ -79,20 +79,20 @@ public:
 		
 	}
 	
-	void readFromFile(string in)
+	void readFromFile(string * in)
 	{
 		size_t line;
 		size_t last=0;
 	
 		int i=0;
 		while(i<=1000000){
-			line=in.find("\n",last+1);
+			line=in->find("\n",last+1);
 		//line!=string::npos || 
-			if (line>in.length()){
+			if (line>in->length()){
 				cout<<"break:"<<line<<endl;break;
 			}else{
 				taskClass tmp;
-				tmp.readIn(in.substr(last+1,line));
+				tmp.readIn(in->substr(last+1,line));
 				list.push_back(tmp);
 				last=line;
 				++i;
@@ -101,6 +101,23 @@ public:
 		
 		
 	}
+
+	/*void readFromFile(string * in)
+	{
+		char * pch;
+		char * tmpstr=strdup((*in).c_str());
+		cout<<"****inact*****\n"<<tmpstr<<"****end-inact*****"<<endl;
+		
+		pch = strtok (tmpstr,"\n");
+		taskClass tmp;
+		while (pch != NULL)
+		{
+			tmp.readIn(pch);
+
+			list.push_back(tmp);
+			pch = strtok (NULL, "\n");
+		}
+	}*/
 
 };
 

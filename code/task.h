@@ -170,6 +170,59 @@ public:
 		
 	}
 	
+	
+	/*void readIn(char * charsIn)
+	{
+		size_t line;
+		size_t last;
+		string in=string(charsIn);
+		
+		setCompleted(0);
+				
+		line=in.find("\t");
+		setInactive(atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setApt(atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		setId(atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setName(in.substr(last,line));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setDescription(in.substr(last,line));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setProject(in.substr(last,line));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setDueDate((time_t) atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setTimeEst((time_t) atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setTimeElapse((time_t) atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setPriority(atoi(in.substr(last,line).c_str()));
+		last=line+1;
+
+		line=in.find("\t",last);
+		setPrereq(atoi(in.substr(last,line).c_str()));
+		
+	}*/
+	
 	void readInCommand(string in)
 	{
 
