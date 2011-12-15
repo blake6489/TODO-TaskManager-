@@ -21,6 +21,7 @@ using namespace std;
 #ifndef INACTIVELIST_H_INCLUDE
 #define INACTIVELIST_H_INCLUDE
 
+//much like the active list, but with lest cool features
 class inactiveListClass {
 	
 	vector<taskClass> list;
@@ -89,7 +90,8 @@ public:
 			line=in->find("\n",last+1);
 		//line!=string::npos || 
 			if (line>in->length()){
-				cout<<"break:"<<line<<endl;break;
+				//cout<<"break:"<<line<<endl;
+				break;
 			}else{
 				taskClass tmp;
 				tmp.readIn(in->substr(last+1,line));

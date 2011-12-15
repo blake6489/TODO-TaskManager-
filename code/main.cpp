@@ -44,23 +44,15 @@ int main (int argc, char* argv[])
 	string actFile="activeList";
 	string inactFile="inactiveList";
 	
-	//string aaa=fileReadMmap(actFile);
-	//string iii=fileReadMmap(inactFile);
-
-time_t now = time (NULL);
+	time_t now = time (NULL);
 
 	activeListClass activeList;
 	inactiveListClass inactiveList;
 	
-
 	activeList.readFromFile(&fileReadMmap(actFile));
 	inactiveList.readFromFile(&fileReadMmap(inactFile));
 
 	
-	//vector<taskClass> o=activeList.show();
-	//for(int i=0; i<o.size();++i){
-		//cout<<o[i]<<endl;
-	//}
 ///////////////
 	vector<string> arg;
 	if(argc>1){
@@ -78,11 +70,10 @@ time_t now = time (NULL);
 	
 		string firstArg=arg[0];
 		std::transform(firstArg.begin(), firstArg.end(), firstArg.begin(), (int(*)(int)) tolower);
-		cout<<firstArg<<endl;
 
+		//identify the command number
 		int argNum=-1;
 		for(int i = 0; i<commands.size(); ++i){	if(firstArg==commands[i]){argNum=i;}}
-		if(argNum==-1){	cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;}
 
 		vector<taskClass> o;
 
@@ -142,135 +133,50 @@ time_t now = time (NULL);
 				}
 				break;
 			case (7)://"help"
-				for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
+
+				printf("The TODO program tracks the tasks that are entered into it.\n");
+				printf("The performance of the program will degrade for large numbers of active items\n");
+				printf("At one thousand items, 1 second is needed to finish the operation.\n");
+				printf("\n");
+				printf("new apt(0/1) name description project due-date time-estimate [priority] [prereq ID]\n");
+				printf("    apt is an integer boolean, 1 is an appointment, 0 is a task\n");
+				printf("    name, description and project are simple string values. Use single quotes\n     around variable that have spaces in them.\n"); 
+				printf("    due-date in MM-DD-YYYY format (03-24-2011). Leading zeros are alowed but not\n     required.\n");
+				printf("    time-estimate is the time the task will likely take measured in hours\n");
+				printf("    priority is optional. it is the number of elements from the top, with 0\n     being the top.\n");
+				printf("    prereq is the ID of the item that is required to precede it.\n");
+				printf("start\n    Accumulates time spent on the top task in the list.\n");
+				printf("inactivate ID\n    Marks the item with the given ID as inactive and moves it to the inactive\n     list.\n");
+				printf("completed\n    Marks the top item in the list as completed and moves it to the inactive\n     list.\n");
+				printf("stop\n    Stops accumulating time on the top item in the list.\n");
+				printf("show [n]\n    Show the first n elements of the active list. If no number is given the\n     default is all.\n");
+				printf("move ID priority\n    Moves the item with the given ID to the location with the given priority\n");
+				
+				printf("    \n");
+				printf("    The files activeList and inactiveList store the tasks and apontment.\n     Modifying these files will change the items in the list. The data is stored\n     in tab delimited text format. \n");
+				printf("To modify an entry, edit the activeList or inactiveList files\n");
+				printf("\n");
+				printf("The file format is 4 integers followed by a table.\n");
+				printf("The integers are the ID number of the last item created,\n the rate at which the apointments climb higher on the todo list in seconds,\n the number of the item that is being worked on (this must be the tp item,\n and the Unix epoch time when work started, or when the time worked was last\n calculated.\n");
+				printf("The table is layed out in the following manner:\n");
+				printf("completed(0/1) inactive(0/1) ID apt(0/1) name description project due-date\n time-estimate priority prereq\n"); 
+				printf("\n");
+				printf("To make the task show you changes to the list over time due to appointments\n     getting closer make sure to modify your crontab to incude a line similar\n    to this one:\n\t15,30,45,59 * * * * user ./home/user/path/TODO show 10\n     to see changes to the top 10 items every 15 minutes");
 				break;
 			default:
-				cout<< "Command \""<< firstArg <<"\" not recognised"<<endl;
+				cout<< "Command \""<< firstArg <<"\" not recognised\ntry one of these"<<endl;
+				for(int i=0; i<commands.size() ; ++i){ cout<< commands.at(i) << endl;}
 		}
 	
+	}//end if(argc>1)
 	
-	
-	}//end if(args exist)
-	
-	//o=activeList.show(25);
-	//for(int i=0; i<o.size();++i){
-		//cout<<o[i]<<endl;
-//	}
-	/*for(int i=0; i<1000; ++i){
-		activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
-	}*/
-	/*activeList.push(false, "namething1", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 0);
-	activeList.push(false, "namething6", "descprojectthing", "projectthing", date(now+50000), date((time_t) 500), 0);
-	activeList.push(false, "namething3", "descprojectthing", "projectthing", date(now+9000), date((time_t) 500), 2 , 1);
-	activeList.push(true, "namething2", "descprojectthing", "projectthing", date(now+100), date((time_t) 500), 3 );
-	activeList.push(true, "namething4", "descprojectthing", "projectthing", date(now+610), date((time_t) 500), 4);
-	activeList.push(true, "namething7", "descprojectthing", "projectthing", date(now+10030), date((time_t) 500), 4);
-	activeList.push(false, "namething5", "descprojectthing", "projectthing", date(now+98747), date((time_t) 500), 4);
-*/
-	/*
-cout <<"*4 tasks and 3 apointments added*"<<endl;
-	
-	vector<taskClass> o=activeList.show();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-cout <<"*correct order*"<<endl;
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-cout <<"*workingontop - timer advance - corrent order*"<<endl;
-	activeList.workingOnTop();
-	activeList.timerAdvance();
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-	wait(5);
-
-cout <<"*stop working - timeradvance - correct order*"<<endl;
-	activeList.stopWorkingOnTop();
-	activeList.timerAdvance();
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-	*/
-	
-//cout <<"*#5 completed*"<<endl;
-	//completed(14,&activeList,&inactiveList);
-/*
-cout <<"*show inactive list*"<<endl;
-	o=inactiveList.show();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-cout <<"*show in correct order - active*"<<endl;
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-cout <<"*move #7 to pos 3 - show in correct order*"<<endl;	
-	activeList.move(7,3);
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-	
-cout <<"*move #3 to pos 1 - show in correct order ### should fail*"<<endl;	
-	activeList.move(3,1);
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-	
-cout <<"*workingontop - corrent order*"<<endl;
-	activeList.workingOnTop();
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-	wait(5);
-	
-cout <<"*workingontop again ### fails - corrent order*"<<endl;
-	activeList.workingOnTop();
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}
-
-	wait(5);
-
-cout <<"*stop working - correct order*"<<endl;
-	activeList.stopWorkingOnTop();
-	activeList.timerAdvance();
-	o=activeList.showInCorrectOrder();
-	for(int i=0; i<o.size();++i){
-		cout<<o[i]<<endl;
-	}	
-	
-	
-	
-	//string u=fileReadMmap("README");
-*/
 
 	ofstream myfile;
-	myfile.open ("activeList");
+	myfile.open (actFile.c_str());
 	myfile << activeList.writeToFile();
 	myfile.close();
 	
-
-	//o=inactiveList.show();
-	//for(int i=0; i<o.size();++i){
-		//cout<<o[i]<<endl;
-//	}
-	myfile.open ("inactiveList");
+	myfile.open (inactFile.c_str());
 	myfile << inactiveList.writeToFile();
 	myfile.close();
 
@@ -293,8 +199,8 @@ void commandNew(activeListClass* list,vector<string> nArg){
 		nArg[3], //desc
 		nArg[4], //proj
 		
-		(time_t) atoi(nArg[5].c_str()), // due
-		(time_t) atoi(nArg[6].c_str()), //time est
+		date(nArg[5].c_str()), // due
+		(time_t) atoi(nArg[6].c_str())*60*60, //time est *3600 to convert to seconds
 		
 		atoi(nArg[7].c_str()), //priority
 		atoi(nArg[8].c_str()) //prereq

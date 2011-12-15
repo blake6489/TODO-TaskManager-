@@ -116,7 +116,7 @@ public:
 		}else{
 
 			if(prereq!=-1){
-			cout<<"*prereq testing*"<<endl;
+				//cout<<"*prereq testing*"<<endl;
 			
 				for(int i = priority; i<list.size() ; ++i){
 					if(list[i].getId()==prereq){
@@ -139,7 +139,7 @@ public:
 				return &(list[n]);
 			}
 		}
-		cout<<"*****1getbyid problem, not here********"<<endl;
+		cout<<"*****getbyid problem, not here********"<<endl;
 		return &(taskClass());
 	}
 	
@@ -150,7 +150,7 @@ public:
 			if(list[n].getId()==i){
 				it = list.begin()+n;
 				list.erase(it);
-				cout<<"*****removed********"<<endl;
+				//cout<<"*****removed from active list********"<<endl;
 			}
 		}
 	}
@@ -163,7 +163,7 @@ public:
 				return (list[n]);
 			}
 		}
-		cout<<"*****2getbyid problem, not here********"<<endl;
+		cout<<"*****getbyid problem, not here********"<<endl;
 		return (taskClass());
 	}
 	
@@ -175,7 +175,7 @@ public:
 				return n;
 			}
 		}
-		cout<<"*****3getbyid problem, not here********"<<endl;
+		cout<<"*****getbyid problem, not here********"<<endl;
 		return -1;
 	}
 	
@@ -256,7 +256,6 @@ public:
 		}else{
 			taskClass t = getByIdNoPtr(i);
 			removeById(i);
-cout<<"*****inactivated*****"<<endl;
 			t.setInactive(true);
 			return t;
 		}
@@ -347,7 +346,8 @@ cout<<"*****inactivated*****"<<endl;
 			line=in->find("\n",last+1);
 
 			if (line>in->length()){
-				cout<<"break:"<<line<<endl;break;
+				//cout<<"break:"<<line<<endl;
+				break;
 			}else{
 				taskClass tmp;
 				tmp.readIn(in->substr(last+1,line));

@@ -29,17 +29,18 @@ public:
 		struct tm storage={sec,min,hrs,day,month,year,0,0,0};
 		time=mktime(&storage);
 	}
+	//takes MM-DD-YYYY date from command line entry
 	date(const char *t)
 	{
 		struct tm storage={0,0,0,0,0,0,0,0,0};
 		char *p=NULL;
 		time_t retval=0;
 
-        p=(char *)strptime(t,"%d-%b-%Y",&storage);
+        p=(char *)strptime(t,"%m-%d-%Y",&storage);
 		if(p==NULL)
 		{
 			time=0;
-			cout<< "***********date(char*) given wrong info***********"<<endl;
+			cout<< "***********date(char*) given wrong info***********"<<t<<endl;
 		}
 		else
 		{
@@ -50,6 +51,7 @@ public:
 public:
 	time_t getDate(){return time;}
 	
+	//used when the 'timi is a duration and not a date
 	int getDuration(){return time;}
 	
 	tm print(){return *localtime(&time);}
