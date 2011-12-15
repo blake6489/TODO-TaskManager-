@@ -17,12 +17,11 @@
 using namespace std;
 
 #include "dates.h"
-
 #include "tools/utils.cpp"
 #include "task.h"
 #include "list.h"
 #include "inactivelist.h"
-//#include "command_parse.h"
+
 
 void commandNew(activeListClass* list,vector<string> nArg);
 void completed(activeListClass* act, inactiveListClass* in )

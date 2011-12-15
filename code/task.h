@@ -24,8 +24,8 @@ using namespace std;
 class taskClass
 {
 private:
-	bool completed;
-	bool inactive;
+	bool completed;//future use, check this marker to see integrity of list
+	bool inactive;//future use, check this marker to see integrity of list
 	bool apt;
 	int id;
 
